@@ -1,11 +1,11 @@
 import React from 'react';
 
-const FavDogs = () => {
+const DogsFinder = () => {
     return (
         <div>
-
+            
         </div>
     );
 };
 
-export default FavDogs;
+export default DogsFinder;

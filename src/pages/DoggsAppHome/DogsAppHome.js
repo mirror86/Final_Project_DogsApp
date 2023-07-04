@@ -11,10 +11,10 @@ const DogsAppHome = () => {
                 </Row>
                 <Row className="main__item">
                     <Col xs={12} sm={6} md={6} className="main__item__button">
-                        <Button>Znajdź wymarzonego psa</Button>
+                        <Button href="/finder">Znajdź wymarzonego psa</Button>
                     </Col>
                     <Col xs={12} sm={6} md={6} className="main__item__button">
-                        <Button>Przeszukaj</Button>
+                        <Button href="list">Przeszukaj</Button>
                     </Col>
                 </Row>
             </Container>

@@ -20,8 +20,8 @@ const DogsFinder = (props) => {
                     <Row className="finde__boxr__item justify-content-xs-center justify-content-md-center">
                         {/*<Col><FormRange className="form-range"></FormRange></Col>*/}
                     </Row>
-                    <Row className="finder__box__item justify-content-xs-center justify-content-md-center">
-                        <Col md={{span:3, offset:3}}>
+                    <Row className="finder__box__item justify-content-xs-center justify-content-md-center flex-column" >
+                        <Col  sm={6} >
                             <Button>Cofnij</Button>
                             <Button>Następne</Button>
                         </Col>

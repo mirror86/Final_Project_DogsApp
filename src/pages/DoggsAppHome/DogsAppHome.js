@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 
 const DogsAppHome = () => {
     return (
-        <Container fluid className="main">
+        <Container className="main">
             <Container className="main__box">
                 <Row className="main__item">
                     <Col className="main__item__text">Aby rozpocząć wybierz:</Col>

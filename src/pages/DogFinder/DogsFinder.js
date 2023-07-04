@@ -11,17 +11,18 @@ const DogsFinder = (props) => {
         <Section>
             <Wrapper>
                 <Container className="finder__box">
-                    <Row className="finder__box__item">
+                    <Row className="finder__box__item justify-content-xs-center justify-content-md-center">
                         <Col md={6}>Pytanie nr</Col>
                     </Row>
-                    <Row className="finder__box__item">
+                    <Row className="finder__box__item justify-content-xs-center justify-content-md-center">
                         <Col md={6}>Treść pytania</Col>
                     </Row>
-                    <Row className="finde__boxr__item">
+                    <Row className="finde__boxr__item justify-content-xs-center justify-content-md-center">
                         {/*<Col><FormRange className="form-range"></FormRange></Col>*/}
                     </Row>
-                    <Row className="finder__box__item">
-                        <Col md={6}>
+                    <Row className="finder__box__item justify-content-xs-center justify-content-md-center">
+                        <Col md={6} className="justify-content-sm-end">
+
                             <Button>Cofnij</Button>
                             <Button>Następne</Button>
                         </Col>

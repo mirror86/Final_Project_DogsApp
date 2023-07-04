@@ -4,16 +4,16 @@ import Container from "react-bootstrap/Container";
 
 const DogsAppHome = () => {
     return (
-        <Container fluid>
-            <Container>
-                <Row>
-                    <Col>Aby rozpocząć wybierz:</Col>
+        <Container fluid className="main">
+            <Container className="main__box">
+                <Row className="main__item">
+                    <Col className="main__item__text">Aby rozpocząć wybierz:</Col>
                 </Row>
-                <Row>
-                    <Col xs={12} sm={6} md={6}>
+                <Row className="main__item">
+                    <Col xs={12} sm={6} md={6} className="main__item__button">
                         <Button>Znajdź wymarzonego psa</Button>
                     </Col>
-                    <Col xs={12} sm={6} md={6}>
+                    <Col xs={12} sm={6} md={6} className="main__item__button>
                         <Button>Przeszukaj</Button>
                     </Col>
                 </Row>

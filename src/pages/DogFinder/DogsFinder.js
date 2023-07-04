@@ -1,12 +1,11 @@
 import React from 'react';
+import Container from "react-bootstrap/Container";
 
 const DogsFinder = () => {
     return (
-        <div>
-            <div>
-
-            </div>
-        </div>
+        <Container>
+            <h1>hej</h1>
+        </Container>
     );
 };
 

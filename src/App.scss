@@ -46,9 +46,17 @@
 
 .wrapper {
   width: 988px;
+  height: 100vh;
   margin: 0 auto;
 }
 
 .finder__box {
-  text-align: center;
+
+  width: 600px;
+  min-height: 400px;
+  flex-direction: column;
+  margin: 0 auto;
+  background-color: pink;
+  border: 1px solid black;
+  border-radius: 15%;
 }

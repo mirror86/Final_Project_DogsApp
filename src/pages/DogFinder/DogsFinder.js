@@ -4,31 +4,34 @@ import FormRange from "react-bootstrap/FormRange";
 import {Button, Col, Row} from "react-bootstrap";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import Section from "../../components/Section/Section";
+import section from "../../components/Section/Section";
 
 
 const DogsFinder = (props) => {
     return (
-        <Section>
-            <Wrapper>
-                <Container className="finder__box">
-                    <Row className="finder__box__item justify-content-xs-center justify-content-md-center">
-                        <Col md={6}>Pytanie nr</Col>
+
+        <section className="d-flex align-items-center justify-content-center" style={{width:"100vw", height: "100vh"}}>
+
+                <Container fluid ="xs" className="finder__box text-center  d-flex align-items-center justify-content-center text-center">
+                    <Row className="finder__box__item">
+                        <Col >Pytanie nr</Col>
                     </Row>
-                    <Row className="finder__box__item justify-content-xs-center justify-content-md-center">
-                        <Col md={6}>Treść pytania</Col>
+                    <Row className="finder__box__item">
+                        <Col >Treść pytania</Col>
                     </Row>
-                    <Row className="finde__boxr__item justify-content-xs-center justify-content-md-center">
+                    <Row className="finde__boxr__item">
                         {/*<Col><FormRange className="form-range"></FormRange></Col>*/}
                     </Row>
-                    <Row className="finder__box__item justify-content-xs-center justify-content-md-center flex-column" >
-                        <Col  sm={6} >
-                            <Button>Cofnij</Button>
-                            <Button>Następne</Button>
+                    <Row className="finder__box__item" >
+                        <Col  className="text-right">
+                            <Button variant="secondary">Cofnij</Button>
+                            <Button variant="primary">Następne</Button>
                         </Col>
                     </Row>
                 </Container>
-            </Wrapper>
-        </Section>
+
+        </section>
+
     );
 };
 

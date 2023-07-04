@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import {Button} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DogList from "./pages/DogList/DogList";

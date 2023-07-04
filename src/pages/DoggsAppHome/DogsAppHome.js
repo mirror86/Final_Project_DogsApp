@@ -13,7 +13,7 @@ const DogsAppHome = () => {
                     <Col xs={12} sm={6} md={6} className="main__item__button">
                         <Button>Znajdź wymarzonego psa</Button>
                     </Col>
-                    <Col xs={12} sm={6} md={6} className="main__item__button>
+                    <Col xs={12} sm={6} md={6} className="main__item__button">
                         <Button>Przeszukaj</Button>
                     </Col>
                 </Row>

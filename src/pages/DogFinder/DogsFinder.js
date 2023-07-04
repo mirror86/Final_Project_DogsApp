@@ -1,11 +1,16 @@
 import React from 'react';
 import Container from "react-bootstrap/Container";
+import FormRange from "react-bootstrap/FormRange";
+import {Col} from "react-bootstrap";
+
+
+
 
 const DogsFinder = () => {
     return (
-        <Container>
-            <h1>hej</h1>
-        </Container>
+
+        <></>
+        
     );
 };
 

@@ -9,27 +9,30 @@ import section from "../../components/Section/Section";
 
 const DogsFinder = (props) => {
     return (
+        <>
+            <Container fluid className="main">
+                <Row className="text-center">
+                    <Col xs={12}>
+                        <header>
+                            <h1>Pytanie</h1>
+                        </header>
+                        <section>
+                            <FormRange></FormRange>
+                        </section>
+                        <div>
+                            <Button>Wróć</Button>
+                            <Button>Następne</Button>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+            <footer className="mt-auto d-flex align-items-center justify-content-center"
+                    style={{
+                        height: '30vh',
+                        background: 'url(/dog-pink.jpg) center/cover'}}>
+            </footer>
 
-        <section className="d-flex align-items-center justify-content-center" style={{width:"100vw", height: "100vh"}}>
-                <Container fluid ="sm" className="finder__box text-center  d-flex align-items-center justify-content-around text-center shadow border-light rounded ">
-                    <Row className="finder__box__item align-self-start">
-                        <Col >Pytanie nr</Col>
-                    </Row>
-                    <Row className="finder__box__item">
-                        <Col >Treść pytania</Col>
-                    </Row>
-                    <Row className="finde__boxr__item">
-                        {/*<Col><FormRange className="form-range"></FormRange></Col>*/}
-                    </Row>
-                    <Row className="finder__box__item align-self-end" >
-                        <Col  className="text-right">
-                            <Button variant="secondary">Cofnij</Button>
-                            <Button variant="primary">Następne</Button>
-                        </Col>
-                    </Row>
-                </Container>
-
-        // </section>
+        </>
 
     );
 };

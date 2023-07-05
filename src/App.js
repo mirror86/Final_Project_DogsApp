@@ -17,6 +17,7 @@ function App() {
           breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
           minBreakpoint="xxs"
       >
+          <div className="vh-100 vw-100 d-flex flex-column">
           <Menu/>
           <Routes>
               <Route path="/" element={<DogsAppHome />} />
@@ -24,6 +25,7 @@ function App() {
               <Route path ="list" element={<DogList/>}/>
               <Route path ="favourites" element={<FavDogs/>}/>
           </Routes>
+          </div>
       </ThemeProvider>
   );
 }

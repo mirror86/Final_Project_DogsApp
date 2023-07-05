@@ -7,13 +7,8 @@ import Menu from "../../components/Menu/Menu";
 const DogsAppHome = () => {
     return (
 
-        <Container fluid className="masthead h-auto vw-100 d-flex flex-column  align-content-between ">
-            {/*<div className="d-flex align-items-center justify-content-center"*/}
-            {/*     style={{*/}
-            {/*         height: '30vh',*/}
-            {/*         background: 'url(/dogs-bg.jpg) center/cover'}}> </div>*/}
-            <img src="/dogs-bg.jpg" alt="main-image" className="masthead-image position-absolute top-0 start-0  w-100 h-auto"/>
-            <Container className="masthead__box  position-relative z-1 ">
+        <Container fluid className="masthead h-auto vw-100 d-flex flex-column  align-content-between mt-auto">
+            <Container className="masthead__box  position-relative text-center mb-4">
                 <Row className="masthead__item">
                     <Col className="masthead__item__text">Aby rozpocząć wybierz:</Col>
                 </Row>

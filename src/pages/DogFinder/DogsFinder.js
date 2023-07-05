@@ -10,7 +10,7 @@ import section from "../../components/Section/Section";
 const DogsFinder = (props) => {
     return (
         <>
-            <Container className="main mt-5 mx-auto p-2 h-100 w-100">
+            <Container fluid className="main h-100 shadow-lg d-flex justify-content-center">
                 <Row className="text-center justify-content-center mt-auto mb-auto mx-auto p-2 h-50 w-50">
                     <Col xs={{span: 6, offset:3 }} className="d-flex flex-column justify-content-center">
                         <header>

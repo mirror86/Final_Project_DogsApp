@@ -7,13 +7,13 @@ const Menu = () => {
     return (
         <Navbar bg="light" expand="lg">
             <Container>
-                <Navbar.Brand href="#home">Dogs App</Navbar.Brand>
+                <Navbar.Brand href="/">Dogs App</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link>
-                            <Link to="/">Dogs App</Link>
-                        </Nav.Link>
+                        {/*<Nav.Link>*/}
+                        {/*    <Link to="/">Dogs App</Link>*/}
+                        {/*</Nav.Link>*/}
                         <Nav.Link>
                             <Link to="/finder">Dogs Finder</Link>
                         </Nav.Link>

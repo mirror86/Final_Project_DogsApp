@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 
 const DogsAppHome = () => {
     return (
+        <section className="image-home">
         <Container className="main">
             <Container className="main__box">
                 <Row className="main__item">
@@ -19,6 +20,7 @@ const DogsAppHome = () => {
                 </Row>
             </Container>
         </Container>
+        </section>
     );
 };
 

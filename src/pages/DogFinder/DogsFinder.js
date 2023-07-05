@@ -11,8 +11,7 @@ const DogsFinder = (props) => {
     return (
 
         <section className="d-flex align-items-center justify-content-center" style={{width:"100vw", height: "100vh"}}>
-
-                <Container fluid ="xs" className="finder__box text-center  d-flex align-items-center justify-content-center text-center">
+                <Container fluid ="sm" className="finder__box text-center  d-flex align-items-center justify-content-around text-center shadow border-light rounded ">
                     <Row className="finder__box__item align-self-start">
                         <Col >Pytanie nr</Col>
                     </Row>
@@ -30,7 +29,7 @@ const DogsFinder = (props) => {
                     </Row>
                 </Container>
 
-        </section>
+        // </section>
 
     );
 };

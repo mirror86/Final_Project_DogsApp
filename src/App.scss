@@ -56,3 +56,23 @@
   background-position: center center;
 }
 
+.footer {
+  height: 30vh;
+  background-image: url("./../public/dog-pink.jpg");
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.footer:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 30vh;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(0deg, rgba(105,104,115,1) 0%, rgba(207,207,238,0) 0%, rgba(16,16,17,0.4598214285714286) 86%, rgb(25, 25, 28) 100%);
+  background-size: cover;
+  background-position: center center;
+
+}

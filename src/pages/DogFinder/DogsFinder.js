@@ -10,16 +10,16 @@ import section from "../../components/Section/Section";
 const DogsFinder = (props) => {
     return (
         <>
-            <Container fluid className="main">
+            <Container className="main mt-auto mb-auto">
                 <Row className="text-center">
-                    <Col xs={12}>
+                    <Col xs={{span: 6, offset:3 }} className="d-flex flex-column justify-content-center">
                         <header>
                             <h1>Pytanie</h1>
                         </header>
                         <section>
                             <FormRange></FormRange>
                         </section>
-                        <div>
+                        <div className="align-self-end">
                             <Button>Wróć</Button>
                             <Button>Następne</Button>
                         </div>

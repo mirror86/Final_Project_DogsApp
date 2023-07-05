@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 const Menu = () => {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg" className="z-1 bg-opacity-10">
             <Container>
                 <Navbar.Brand href="/">Dogs App</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

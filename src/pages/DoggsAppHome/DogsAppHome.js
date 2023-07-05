@@ -12,8 +12,8 @@ const DogsAppHome = () => {
             {/*     style={{*/}
             {/*         height: '30vh',*/}
             {/*         background: 'url(/dogs-bg.jpg) center/cover'}}> </div>*/}
-                <img src="/dogs-bg.jpg" alt="main-image" className="masthead-image "/>
-            <Container className="masthead__box text-center ">
+            <img src="/dogs-bg.jpg" alt="main-image" className="masthead-image position-absolute top-0 start-0  w-100 h-auto"/>
+            <Container className="masthead__box  position-relative z-1 ">
                 <Row className="masthead__item">
                     <Col className="masthead__item__text">Aby rozpocząć wybierz:</Col>
                 </Row>

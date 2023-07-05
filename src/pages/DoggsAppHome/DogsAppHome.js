@@ -1,11 +1,14 @@
 import React from 'react';
 import {Button, Col, Row} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
+import Menu from "../../components/Menu/Menu";
+
 
 const DogsAppHome = () => {
     return (
-        <section className="image-home">
-        <Container className="main">
+
+        <Container fluid className="main vh-100">
+            <img src="/dogs-bg.jpg" alt="main-image" className="masthead-image"/>
             <Container className="main__box">
                 <Row className="main__item">
                     <Col className="main__item__text">Aby rozpocząć wybierz:</Col>
@@ -20,7 +23,6 @@ const DogsAppHome = () => {
                 </Row>
             </Container>
         </Container>
-        </section>
     );
 };
 

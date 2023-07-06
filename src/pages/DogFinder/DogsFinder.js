@@ -5,12 +5,13 @@ import {Button, Col, Row} from "react-bootstrap";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import Section from "../../components/Section/Section";
 import section from "../../components/Section/Section";
+import Footer from "../../components/Footer/Footer";
 
 
 const DogsFinder = (props) => {
     return (
         <>
-            <Container fluid className="finder__container main h-100 shadow-lg d-flex justify-content-center">
+            <Container fluid className="finder__container h-75  main shadow-lg d-flex justify-content-center bg-white">
                 <Row className="text-center justify-content-center mt-auto mb-auto mx-auto p-2 h-50 w-50">
                     <Col xs={{span: 6, offset:3 }} className="d-flex flex-column justify-content-center">
                         <header>
@@ -26,8 +27,7 @@ const DogsFinder = (props) => {
                     </Col>
                 </Row>
             </Container>
-            <footer className=" footer mt-auto d-flex align-items-center justify-content-center">
-            </footer>
+            <Footer/>
 
         </>
 

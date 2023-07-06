@@ -11,12 +11,12 @@ import section from "../../components/Section/Section";
 const DogList = () => {
     return (
         <>
-            <Container fluid className="finder__container main h-75 shadow-lg d-flex bg-white ">
+            <Container fluid className="finder__container main h-75 shadow-lg bg-white " style={{overflow: "scroll"}}>
                 <Wrapper>
-                    <Container fluid className="h-100 bg-white">
-                        <Row className=" ">
-                            <Col>
-                                <Card style={{width: '18rem'}} className="border-light shadow-lg mt-5">
+                    <Container className="h-100 bg-white">
+                        <Row>
+                            <Col xl={3} md={6} sm={12} className="">
+                                <Card className="border-light shadow-lg mt-5 mb-5 ms-2 me-2 ">
                                     <Card.Header>
                                         <i className="fa-regular fa-heart"></i>
                                     </Card.Header>
@@ -31,12 +31,77 @@ const DogList = () => {
                                     </Card.Body>
                                 </Card>
                             </Col>
+                            <Col xl={3} md={6} sm={12} className="">
+                                <Card className="border-light shadow-lg mt-5 mb-5 ms-2 me-2 ">
+                                    <Card.Header>
+                                        <i className="fa-regular fa-heart"></i>
+                                    </Card.Header>
+                                    <Card.Img variant="top" src="/IMG-2713.jpg"/>
+                                    <Card.Body>
+                                        <Card.Title>Card Title</Card.Title>
+                                        <Card.Text>
+                                            Some quick example text to build on the card title and make up the
+                                            bulk of the card's content.
+                                        </Card.Text>
+                                        <Button variant="primary">Więcej</Button>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                            <Col xl={3} md={6} sm={12} className="">
+                                <Card className="border-light shadow-lg mt-5 mb-5 ms-2 me-2 ">
+                                    <Card.Header>
+                                        <i className="fa-regular fa-heart"></i>
+                                    </Card.Header>
+                                    <Card.Img variant="top" src="/IMG-2713.jpg"/>
+                                    <Card.Body>
+                                        <Card.Title>Card Title</Card.Title>
+                                        <Card.Text>
+                                            Some quick example text to build on the card title and make up the
+                                            bulk of the card's content.
+                                        </Card.Text>
+                                        <Button variant="primary">Więcej</Button>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+
+                            <Col xl={3} md={6} sm={12} className="">
+                                <Card className="border-light shadow-lg mt-5 mb-5 ms-2 me-2 ">
+                                    <Card.Header>
+                                        <i className="fa-regular fa-heart"></i>
+                                    </Card.Header>
+                                    <Card.Img variant="top" src="/IMG-2713.jpg"/>
+                                    <Card.Body>
+                                        <Card.Title>Card Title</Card.Title>
+                                        <Card.Text>
+                                            Some quick example text to build on the card title and make up the
+                                            bulk of the card's content.
+                                        </Card.Text>
+                                        <Button variant="primary">Więcej</Button>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+
+                            <Col xl={3} md={6} sm={12} className="">
+                                <Card className="border-light shadow-lg mt-5 mb-5 ms-2 me-2 ">
+                                    <Card.Header>
+                                        <i className="fa-regular fa-heart"></i>
+                                    </Card.Header>
+                                    <Card.Img variant="top" src="/IMG-2713.jpg"/>
+                                    <Card.Body>
+                                        <Card.Title>Card Title</Card.Title>
+                                        <Card.Text>
+                                            Some quick example text to build on the card title and make up the
+                                            bulk of the card's content.
+                                        </Card.Text>
+                                        <Button variant="primary">Więcej</Button>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+
                         </Row>
                     </Container>
                 </Wrapper>
             </Container>
-
-
             <Footer/>
         </>
     );

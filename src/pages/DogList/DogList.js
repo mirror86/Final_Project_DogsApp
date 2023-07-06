@@ -97,11 +97,12 @@ const DogList = () => {
                                     </Card.Body>
                                 </Card>
                             </Col>
-
                         </Row>
                     </Container>
                 </Wrapper>
             </Container>
+
+
             <Footer/>
         </>
     );

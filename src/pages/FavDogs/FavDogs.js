@@ -37,8 +37,8 @@ const FavDogs = () => {
                     </Container>
 
             </Container>
+            </>
 
-        </div>
     );
 };
 

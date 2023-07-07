@@ -8,35 +8,58 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 const FavDogs = () => {
     return (
         <>
-            <Container fluid className="finder__container main h-75 shadow-lg d-flex bg-white" style={{overflowY: "scroll"}} >
-
-                    <Container fluid={"md"} className="h-100 bg-white mx-auto">
+            <Container fluid className="pages__container main h-100 shadow-lg  bg-white" style={{overflowY: "scroll"}} >
+               <Container fluid className="h-100 bg-white">
                         <Row className=" ">
                             <Col>
-                                    <table className="table align-middle border-light shadow-lg mt-5 rounded-5">
-                                        <thead>
-                                        <tr>
-                                            <td>Dog Breed</td>
-                                            <td>Photo</td>
-                                            <td>Short Description</td>
-                                            <td>Action</td>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>Dog Name</td>
-                                            <td><img src="/public/IMG-2713.jpg" alt=""/></td>
-                                            <td></td>
-                                            <td><i className="fa-solid fa-trash-can" /></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                                <Container className="mt-4">
+                                    <Row className=" shadow justify-content-center m-sm-2 gap-5 align-items-center p-3">
+                                        <Col xs={1} md={2} className="text-center"><img src="/dog-icon.jpg" alt="" className="w-100 rounded m-auto"/></Col>
+                                        <Col xs={1} md={1} className="">Dog Breed</Col>
+                                        <Col xs={2} md={3} className="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium culpa doloribus eos, ex explicabo hic nam possimus unde voluptatem.</Col>
+                                        <Col xs={1} md={2} className="text-center">action <i className="fa-solid fa-trash-can" /></Col>
+                                    </Row>
+                                </Container>
+                                <Container className="mt-4">
+                                    <Row className=" shadow justify-content-center m-sm-2 gap-5 align-items-center p-3">
+                                        <Col xs={1} md={2} className="text-center"><img src="/dog-icon.jpg" alt="" className="w-100 rounded m-auto"/></Col>
+                                        <Col xs={1} md={1} className="">Dog Breed</Col>
+                                        <Col xs={2} md={3} className="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium culpa doloribus eos, ex explicabo hic nam possimus unde voluptatem.</Col>
+                                        <Col xs={1} md={2} className="text-center">action <i className="fa-solid fa-trash-can" /></Col>
+                                    </Row>
+                                </Container>
+                                <Container className="mt-4">
+                                    <Row className=" shadow justify-content-center m-sm-2 gap-5 align-items-center p-3">
+                                        <Col xs={1} md={2} className="text-center"><img src="/dog-icon.jpg" alt="" className="w-100 rounded m-auto"/></Col>
+                                        <Col xs={1} md={1} className="">Dog Breed</Col>
+                                        <Col xs={2} md={3} className="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium culpa doloribus eos, ex explicabo hic nam possimus unde voluptatem.</Col>
+                                        <Col xs={1} md={2} className="text-center">action <i className="fa-solid fa-trash-can" /></Col>
+                                    </Row>
+                                </Container>
+                                <Container className="mt-4">
+                                    <Row className=" shadow justify-content-center m-sm-2 gap-5 align-items-center p-3">
+                                        <Col xs={1} md={2} className="text-center"><img src="/dog-icon.jpg" alt="" className="w-100 rounded m-auto"/></Col>
+                                        <Col xs={1} md={1} className="">Dog Breed</Col>
+                                        <Col xs={2} md={3} className="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium culpa doloribus eos, ex explicabo hic nam possimus unde voluptatem.</Col>
+                                        <Col xs={1} md={2} className="text-center">action <i className="fa-solid fa-trash-can" /></Col>
+                                    </Row>
+                                </Container>
+                                <Container className="mt-4">
+                                    <Row className=" shadow justify-content-center m-sm-2 gap-5 align-items-center p-3">
+                                        <Col xs={1} md={2} className="text-center"><img src="/dog-icon.jpg" alt="" className="w-100 rounded m-auto"/></Col>
+                                        <Col xs={1} md={1} className="">Dog Breed</Col>
+                                        <Col xs={2} md={3} className="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium culpa doloribus eos, ex explicabo hic nam possimus unde voluptatem.</Col>
+                                        <Col xs={1} md={2} className="text-center">action <i className="fa-solid fa-trash-can" /></Col>
+                                    </Row>
+                                </Container>
+
 
                             </Col>
                         </Row>
                     </Container>
 
             </Container>
+
             </>
 
     );

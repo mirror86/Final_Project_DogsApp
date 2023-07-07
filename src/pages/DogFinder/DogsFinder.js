@@ -2,8 +2,7 @@ import React from 'react';
 import Container from "react-bootstrap/Container";
 import FormRange from "react-bootstrap/FormRange";
 import {Button, Col, Row} from "react-bootstrap";
-import Wrapper from "../../components/Wrapper/Wrapper";
-import Section from "../../components/Section/Section";
+
 import section from "../../components/Section/Section";
 import Footer from "../../components/Footer/Footer";
 

@@ -43,22 +43,21 @@
   align-items: center;
   text-align: center;
 }
-//
-//.wrapper {
-//  width: 988px;
-//  height: 100vh;
-//  margin: 0 auto;
-//}
+
+.wrapper {
+  width: 988px;
+  height: 100vh;
+  margin: 0 auto;
+}
 
 .app-bg {
-  background-image: url("./../public/dogs-bg.jpg");
-  background-size: cover;
+  background-image: url("./../public/dogo-arg.jpg");
   background-position: center center;
+  background-size: cover;
 }
 
 .footer {
-
-  background-image: url("./../public/pointer.jpg");
+  background-image: url("./../public/dog-bone-background-1131348.jpg");
   background-size: cover;
   background-position: center center;
   position: relative;
@@ -76,3 +75,8 @@
   background-position: center center;
 
 }
+
+.icon-image {
+
+}
+

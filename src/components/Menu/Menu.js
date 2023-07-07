@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 const Menu = () => {
     return (
-        <Navbar bg="light" expand="lg" className="z-1 bg-opacity-10">
+        <Navbar bg="light" expand="lg" className="z-1 bg-opacity-10 ">
             <Container>
                 <Navbar.Brand href="/">Dogs App</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -14,14 +14,14 @@ const Menu = () => {
                         {/*<Nav.Link>*/}
                         {/*    <Link to="/">Dogs App</Link>*/}
                         {/*</Nav.Link>*/}
-                        <Nav.Link>
-                            <Link to="/finder">Dogs Finder</Link>
+                        <Nav.Link href="/finder">
+                           Dogs Finder
                         </Nav.Link>
-                        <Nav.Link>
-                            <Link to="/list">Dogs List</Link>
+                        <Nav.Link href="/list" >
+                          Dogs List
                         </Nav.Link>
-                        <Nav.Link>
-                            <Link to="/favourites">My Favourites</Link>
+                        <Nav.Link href="/favourites">
+                            My Favourites
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

@@ -17,7 +17,7 @@ function App() {
           breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
           minBreakpoint="xxs"
       >
-          <div className="position-relative vh-100 vw-100 d-flex flex-column app-bg">
+          <div className="position-relative vh-100 vw-100 app-bg">
           <Menu/>
           <Routes>
               <Route path="/" element={<DogsAppHome />} />

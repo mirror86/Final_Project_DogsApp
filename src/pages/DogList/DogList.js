@@ -10,7 +10,7 @@ const DogList = () => {
             <Container fluid className="pages__container main h-100 shadow-lg bg-white " style={{overflowY: "scroll"}}>
                 <Container fluid className="h-100 bg-white">
                     <Row className="flex-wrap">
-                        <Col xl={3} md={4} sm={6} className="">
+                        <Col xl={3} md={4}>
                             <Card className="border-light shadow-lg mt-5 mb-5 ms-2 me-2 ">
                                 <Card.Header>
                                     <i className="fa-regular fa-heart"></i>
@@ -22,7 +22,7 @@ const DogList = () => {
                                         Some quick example text to build on the card title and make up the
                                         bulk of the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Więcej</Button>
+                                    <Button variant="outline-info">More</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -38,7 +38,7 @@ const DogList = () => {
                                         Some quick example text to build on the card title and make up the
                                         bulk of the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Więcej</Button>
+                                    <Button variant="outline-info">More</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -54,7 +54,7 @@ const DogList = () => {
                                         Some quick example text to build on the card title and make up the
                                         bulk of the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Więcej</Button>
+                                    <Button variant="outline-info">More</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -70,7 +70,7 @@ const DogList = () => {
                                         Some quick example text to build on the card title and make up the
                                         bulk of the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Więcej</Button>
+                                    <Button variant="outline-info">More</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -86,7 +86,7 @@ const DogList = () => {
                                         Some quick example text to build on the card title and make up the
                                         bulk of the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Więcej</Button>
+                                    <Button variant="outline-info">More</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -102,7 +102,7 @@ const DogList = () => {
                                         Some quick example text to build on the card title and make up the
                                         bulk of the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Więcej</Button>
+                                    <Button variant="outline-info">More</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -118,7 +118,7 @@ const DogList = () => {
                                         Some quick example text to build on the card title and make up the
                                         bulk of the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Więcej</Button>
+                                    <Button variant="outline-info">More</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -134,7 +134,7 @@ const DogList = () => {
                                         Some quick example text to build on the card title and make up the
                                         bulk of the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Więcej</Button>
+                                    <Button variant="outline-info">More</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -150,7 +150,7 @@ const DogList = () => {
                                         Some quick example text to build on the card title and make up the
                                         bulk of the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Więcej</Button>
+                                    <Button variant="outline-info">Więcej</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -166,7 +166,7 @@ const DogList = () => {
                                         Some quick example text to build on the card title and make up the
                                         bulk of the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Więcej</Button>
+                                    <Button variant="outline-info">More</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -182,7 +182,7 @@ const DogList = () => {
                                         Some quick example text to build on the card title and make up the
                                         bulk of the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Więcej</Button>
+                                    <Button variant="outline-info">More</Button>
                                 </Card.Body>
                             </Card>
                         </Col>

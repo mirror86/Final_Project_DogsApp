@@ -3,6 +3,8 @@ import Container from "react-bootstrap/Container";
 import FormRange from "react-bootstrap/FormRange";
 import {Button, Col, Row} from "react-bootstrap";
 import Footer from "../../components/Footer/Footer";
+import Slider from "../../components/Slider/RangeForm";
+import RangeForm from "../../components/Slider/RangeForm";
 
 
 const DogsFinder = () => {
@@ -15,11 +17,11 @@ const DogsFinder = () => {
                             <h1>Question</h1>
                         </header>
                         <section>
-                            <FormRange></FormRange>
+                            <RangeForm/>
                         </section>
                         <div className="align-self-md-auto-end align-content-sm-center-center">
-                            <Button className="ms-2 me-2 mt-3">Back</Button>
-                            <Button className="ms-2 me-2 mt-3">Next</Button>
+                            <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3">Back</Button>
+                            <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3">Next</Button>
                         </div>
                     </Col>
                 </Row>

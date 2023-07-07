@@ -1,6 +1,6 @@
-import logo from './logo.svg';
+
 import './App.scss';
-import {Button} from "react-bootstrap";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DogList from "./pages/DogList/DogList";
 import DogsFinder from "./pages/DogFinder/DogsFinder";
@@ -8,7 +8,7 @@ import DogsAppHome from "./pages/DoggsAppHome/DogsAppHome";
 import FavDogs from "./pages/FavDogs/FavDogs";
 import Menu from "./components/Menu/Menu";
 import {ThemeProvider} from "react-bootstrap";
-import {Routes, Route, Link} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 
 
 function App() {

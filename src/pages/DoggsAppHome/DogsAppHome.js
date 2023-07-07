@@ -1,15 +1,15 @@
 import React from 'react';
 import {Button, Col, Row} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import Menu from "../../components/Menu/Menu";
+
 
 
 const DogsAppHome = () => {
     return (
 
-        <Container fluid className="masthead  h-75 vw-100 d-flex flex-column justify-content-center ">
+        <Container fluid className="masthead  h-75 vw-100 d-flex flex-column justify-content-end ">
             <Container className="masthead__box  position-relative text-center mb-4 ">
-                <Row className="masthead__item d-flex mx-auto">
+                <Row className="masthead__item d-flex mx-auto justify-content-evenly">
                     <Col className="masthead__item__text">
                         <h1>Welcome</h1>
                         <h5>Select one of the buttons below to continue</h5>

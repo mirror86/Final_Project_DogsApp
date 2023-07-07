@@ -1,9 +1,8 @@
 import React from 'react';
 import Container from "react-bootstrap/Container";
-import Wrapper from "../../components/Wrapper/Wrapper";
+
 import {Button, Card, Col, ListGroup, Row, Tab} from "react-bootstrap";
-import Footer from "../../components/Footer/Footer";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+
 
 const FavDogs = () => {
     return (

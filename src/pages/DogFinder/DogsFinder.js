@@ -2,12 +2,10 @@ import React from 'react';
 import Container from "react-bootstrap/Container";
 import FormRange from "react-bootstrap/FormRange";
 import {Button, Col, Row} from "react-bootstrap";
-
-import section from "../../components/Section/Section";
 import Footer from "../../components/Footer/Footer";
 
 
-const DogsFinder = (props) => {
+const DogsFinder = () => {
     return (
         <>
             <Container fluid className="finder__container h-75  main shadow-lg d-flex justify-content-center bg-white">

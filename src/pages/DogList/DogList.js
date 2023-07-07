@@ -1,7 +1,7 @@
 import React from 'react';
-import Wrapper from "../../components/Wrapper/Wrapper";
+
 import Container from "react-bootstrap/Container";
-import {Button, Card, CardGroup, Col, Row} from "react-bootstrap";
+import {Button, Card,  Col, Row} from "react-bootstrap";
 
 
 const DogList = () => {

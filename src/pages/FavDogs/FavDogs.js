@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from "react-bootstrap/Container";
 
-import {Button, Card, Col, ListGroup, Row, Tab} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 
 
 const FavDogs = () => {

@@ -1,9 +1,9 @@
 import React from 'react';
 import Container from "react-bootstrap/Container";
-import FormRange from "react-bootstrap/FormRange";
+
 import {Button, Col, Row} from "react-bootstrap";
 import Footer from "../../components/Footer/Footer";
-import Slider from "../../components/Slider/RangeForm";
+
 import RangeForm from "../../components/Slider/RangeForm";
 
 

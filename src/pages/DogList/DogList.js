@@ -2,6 +2,7 @@ import React from 'react';
 
 import Container from "react-bootstrap/Container";
 import {Button, Card,  Col, Row} from "react-bootstrap";
+import DropdownToggle from "react-bootstrap/DropdownToggle";
 
 
 const DogList = () => {

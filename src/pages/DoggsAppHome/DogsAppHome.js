@@ -8,7 +8,7 @@ const DogsAppHome = () => {
     return (
 
         <Container fluid className="masthead  h-75 vw-100 d-flex flex-column justify-content-end ">
-            <Container className="masthead__box  position-relative text-center mb-4 ">
+            <Container className="masthead__box  position-relative text-center mb-4 bg-white bg-opacity-25">
                 <Row className="masthead__item d-flex mx-auto justify-content-evenly">
                     <Col className="masthead__item__text">
                         <h1>Welcome</h1>

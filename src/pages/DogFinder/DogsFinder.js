@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import {Button, Col, Row} from "react-bootstrap";
 import Footer from "../../components/Footer/Footer";
 
-import RangeForm from "../../components/Slider/RangeForm";
+import FormRange from "../../components/FormRange/FormRange";
 
 
 const DogsFinder = () => {
@@ -17,7 +17,8 @@ const DogsFinder = () => {
                             <h1>Question</h1>
                         </header>
                         <section>
-                            <RangeForm/>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, itaque.</p>
+                            <FormRange/>
                         </section>
                         <div className="align-self-md-auto-end align-content-sm-center-center">
                             <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3">Back</Button>

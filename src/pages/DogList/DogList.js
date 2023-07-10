@@ -10,14 +10,14 @@ const DogList = () => {
         <>
             <Container fluid className="pages__container main h-100 shadow-lg bg-white " style={{overflowY: "scroll"}}>
                 <Container fluid className="h-100 bg-white">
-                    <Row className="flex-wrap">
-                        <BreedCard/>
+                    <Row className="d-flex">
+                            <BreedCard/>
                     </Row>
                 </Container>
             </Container>
 
         </>
-    );
+);
 };
 
 export default DogList;

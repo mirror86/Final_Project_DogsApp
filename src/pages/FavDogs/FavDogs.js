@@ -15,7 +15,6 @@ const FavDogs = () => {
                             </Col>
                         </Row>
                     </Container>
-
             </Container>
 
             </>

@@ -1,18 +1,15 @@
 import React from 'react';
 import Container from "react-bootstrap/Container";
-
 import {Button, Col, Row} from "react-bootstrap";
 import Footer from "../../components/Footer/Footer";
-
 import FormRange from "../../components/FormRange/FormRange";
-
 
 const DogsFinder = () => {
     return (
         <>
             <Container fluid className="finder__container h-75  main shadow-lg d-flex justify-content-center bg-white">
                 <Row className="text-center justify-content-center mt-auto mb-auto mx-auto p-2 h-50 w-50">
-                    <Col xs={{span: 6, offset:3 }} className="d-flex flex-column justify-content-center">
+                    <Col xs={{span: 6, offset: 3}} className="d-flex flex-column justify-content-center">
                         <header>
                             <h1>Question</h1>
                         </header>
@@ -28,10 +25,7 @@ const DogsFinder = () => {
                 </Row>
             </Container>
             <Footer/>
-
         </>
-
     );
 };
-
 export default DogsFinder;

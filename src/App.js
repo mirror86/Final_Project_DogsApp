@@ -1,6 +1,4 @@
-
 import './App.scss';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DogList from "./pages/DogList/DogList";
 import DogsFinder from "./pages/DogFinder/DogsFinder";
@@ -9,7 +7,6 @@ import FavDogs from "./pages/FavDogs/FavDogs";
 import Menu from "./components/Menu/Menu";
 import {ThemeProvider} from "react-bootstrap";
 import {Routes, Route} from "react-router-dom";
-
 
 function App() {
   return (
@@ -29,5 +26,4 @@ function App() {
       </ThemeProvider>
   );
 }
-
 export default App;

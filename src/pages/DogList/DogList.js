@@ -5,7 +5,6 @@ import BreedCard from "../../components/BreedCard/BreedCard";
 
 const apiUrl = "https://api.api-ninjas.com/v1/dogs?min_height=1";
 const apiKey = "Puy2zDCkC5Og1tl/a9AkYQ==duVwVJvXcT0MnzNG";
-
 const DogList = () => {
     const [dogData, setDogData] = useState(false);
     const [siteNumber, setSiteNumber] = useState(1);
@@ -26,13 +25,11 @@ const DogList = () => {
         const offset = siteNumber * 20
         loadData(offset);
     }
-
     const handleClickPrevButton = () => {
         setSiteNumber(prevState => prevState - 1)
         const offset = siteNumber * 20
         loadData(offset);
     }
-
     useEffect(() => {
         loadData(0);
     }, []);
@@ -52,7 +49,7 @@ const DogList = () => {
                         {dogData &&
                             <div>
                                 <Button onClick={handleClickPrevButton}>Previous</Button>
-                                <Button onClick={handleClickNextButton} >Next</Button>
+                                <Button onClick={handleClickNextButton}>Next</Button>
                             </div>}
                     </Row>
                 </Container>

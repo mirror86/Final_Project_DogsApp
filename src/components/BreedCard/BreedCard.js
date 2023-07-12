@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {Button, Card, Col, Spinner} from "react-bootstrap";
+import React, {useState} from 'react';
+import {Button, Card, Col} from "react-bootstrap";
+
 const BreedCard = ({dog}) => {
     const [itsFavourite, setItsFavourite] = useState(false);
     const onHandleIconClick = () => {
@@ -11,7 +12,8 @@ const BreedCard = ({dog}) => {
                 <Card.Img variant="top" src={dog.image_link} dog={dog}/>
                 <Card.Body className="d-flex justify-content-between">
                     <Card.Title dog={dog}>{dog.name}</Card.Title>
-                    <i className={`fa-regular fa-heart ${itsFavourite ? "fa-solid" : "fa-regular"}`} onClick={onHandleIconClick}></i>
+                    <i className={`fa-regular fa-heart ${itsFavourite ? "fa-solid" : "fa-regular"}`}
+                       onClick={onHandleIconClick}></i>
                 </Card.Body>
                 <Button variant="outline-info">More</Button>
             </Card>

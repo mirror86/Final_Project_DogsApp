@@ -2,23 +2,22 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from "react-bootstrap/Container";
 
-
 const Menu = () => {
     return (
         <Navbar bg="light" expand="lg" className="z-1 bg-opacity-10 ">
             <Container>
                 <Navbar.Brand href="/">Dogs App</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         {/*<Nav.Link>*/}
                         {/*    <Link to="/">Dogs App</Link>*/}
                         {/*</Nav.Link>*/}
                         <Nav.Link href="/finder">
-                           Dogs Finder
+                            Dogs Finder
                         </Nav.Link>
-                        <Nav.Link href="/list" >
-                          Dogs List
+                        <Nav.Link href="/list">
+                            Dogs List
                         </Nav.Link>
                         <Nav.Link href="/favourites">
                             My Favourites
@@ -29,5 +28,4 @@ const Menu = () => {
         </Navbar>
     );
 };
-
 export default Menu;

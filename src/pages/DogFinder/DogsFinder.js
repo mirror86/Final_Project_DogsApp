@@ -1,17 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Container from "react-bootstrap/Container";
 import {Button, Col, Row} from "react-bootstrap";
 import Footer from "../../components/Footer/Footer";
 import FormRange from "../../components/FormRange/FormRange";
 
 const DogsFinder = () => {
+    const [question, setQuestion] = useState(1)
     return (
         <>
             <Container fluid className="finder__container h-75  main shadow-lg d-flex justify-content-center bg-white">
                 <Row className="text-center justify-content-center mt-auto mb-auto mx-auto p-2 h-50 w-50">
                     <Col xs={{span: 6, offset: 3}} className="d-flex flex-column justify-content-center">
                         <header>
-                            <h1>Question</h1>
+                            <h1> Question no{question}</h1>
                         </header>
                         <section>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, itaque.</p>

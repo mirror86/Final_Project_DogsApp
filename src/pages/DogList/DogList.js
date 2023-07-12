@@ -8,6 +8,7 @@ const apiKey = "Puy2zDCkC5Og1tl/a9AkYQ==duVwVJvXcT0MnzNG";
 const DogList = () => {
     const [dogData, setDogData] = useState(false);
     const [siteNumber, setSiteNumber] = useState(1);
+    const [favDogs, setFavDogs] = useState([])
     const loadData = (offset) => {
         fetch(`${apiUrl}&offset=${offset}`, {
             method: "GET",
@@ -33,7 +34,17 @@ const DogList = () => {
     useEffect(() => {
         loadData(0);
     }, []);
+const handleAddToFavourites = (dogData) => {
 
+const itsAlreadyFav = favDogs.some((favDog) => favDog.id === dogData.id)
+
+    if (itsAlreadyFav) {
+        return;
+    } else {
+        const newFavDogs = [...favDogs, dogData]
+        setFavDogs(newFavDogs)
+    }
+}
     return (
         <>
             <Container fluid className="pages__container main h-100 shadow-lg bg-white " style={{overflowY: "scroll"}}>
@@ -44,7 +55,7 @@ const DogList = () => {
                                 <span className="visually-hidden-focusable"></span>
                             </Spinner>}
                         {dogData && dogData.map((dog, index) => (
-                            <BreedCard key={index} dog={dog}/>
+                            <BreedCard key={index} dog={dog} handleAddToFavourites={handleAddToFavourites}/>
                         ))}
                         {dogData &&
                             <div>

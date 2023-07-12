@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {Button, Card, Col} from "react-bootstrap";
 
-const BreedCard = ({dog}) => {
+const BreedCard = ({dog, handleAddToFavourites}) => {
     const [itsFavourite, setItsFavourite] = useState(false);
     const onHandleIconClick = () => {
         setItsFavourite(!itsFavourite);
+        handleAddToFavourites(dog)
     }
     return (
         <Col xl={3} md={4} sm={6}>

@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Button, Form} from "react-bootstrap";
+import React from 'react';
+import {Form} from "react-bootstrap";
 
 const dogSizes = [
     "The bigger the better",
@@ -31,7 +31,6 @@ const PreferencePage = () => {
                                         label={`${size} `}
                                         name="group1"
                             />
-
                             ))}
                             <p>choose one of the three answers</p>
                             {dogSilhouette.map((silhouette, index) => (

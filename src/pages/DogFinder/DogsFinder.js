@@ -7,10 +7,11 @@ import QuestionnairePage from "../../components/QuestionnairePage/QuestionnaireP
 import PreferencePage from "../../components/PreferencePage/PreferencePage";
 import {Route} from "react-router-dom";
 
-const DogsFinder = () => {
+const DogsFinder = ({value}) => {
     const [question, setQuestion] = useState(1)
     const [showPreferencePage, setShowPreferencePage] = useState(true)
-    const [showQuestionnairePage, setShowQuestionnairePage] = useState(false)
+
+
     const handleNextQuestion = () => {
         setQuestion(prevState => prevState + 1)}
     const handlePrevQuestion = () => {
@@ -23,7 +24,7 @@ const DogsFinder = () => {
     const handleShowQuestionnairePage = () => {
         setShowPreferencePage(false)
     }
-
+    
     return (
         <>
             <Container fluid className="finder__container h-75  main shadow-lg d-flex justify-content-center bg-white">
@@ -37,30 +38,16 @@ const DogsFinder = () => {
                             <QuestionnairePage question={question}/>
                         )}
                         <div className="align-self-md-auto-end align-content-sm-center-center">
-                            <Button
-                                variant="outline-info"
-                                size="lg"
-                                className="ms-2 me-2 mt-3"
-                                onClick={handlePrevQuestion}
+                            <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3" onClick={handlePrevQuestion}
                             >
                                 Back
                             </Button>
                             {showPreferencePage ? (
-                                <Button
-                                    variant="outline-info"
-                                    size="lg"
-                                    className="ms-2 me-2 mt-3"
-                                    onClick={handleShowQuestionnairePage}
-                                >
+                                <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3" onClick={handleShowQuestionnairePage}>
                                     Next
                                 </Button>
                             ) : (
-                                <Button
-                                    variant="outline-info"
-                                    size="lg"
-                                    className="ms-2 me-2 mt-3"
-                                    onClick={handleNextQuestion}
-                                >
+                                <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3" onClick={handleNextQuestion}>
                                     Next
                                 </Button>
                             )}

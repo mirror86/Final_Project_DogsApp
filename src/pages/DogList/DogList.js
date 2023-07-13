@@ -36,7 +36,7 @@ const DogList = () => {
     }, []);
 const handleAddToFavourites = (dogData) => {
 
-const itsAlreadyFav = favDogs.some((favDog) => favDog.id === dogData.id)
+const itsAlreadyFav = favDogs.some((favDog) => favDog === dogData)
 
     if (itsAlreadyFav) {
         return;

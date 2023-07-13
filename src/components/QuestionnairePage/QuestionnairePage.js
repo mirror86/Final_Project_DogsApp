@@ -1,6 +1,5 @@
 import React from 'react';
 import FormRange from "../FormRange/FormRange";
-import {Button} from "react-bootstrap";
 
 
 

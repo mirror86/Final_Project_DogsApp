@@ -7,6 +7,8 @@ import FavDogs from "./pages/FavDogs/FavDogs";
 import Menu from "./components/Menu/Menu";
 import {ThemeProvider} from "react-bootstrap";
 import {Routes, Route} from "react-router-dom";
+import QuestionnairePage from "./components/QuestionnairePage/QuestionnairePage";
+import React from "react";
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
           <Menu/>
           <Routes>
               <Route path="/" element={<DogsAppHome />} />
-              <Route path="finder" element={<DogsFinder />} />
+              <Route path="finder/*" element={<DogsFinder/>}/>
               <Route path ="list" element={<DogList/>}/>
               <Route path ="favourites" element={<FavDogs/>}/>
           </Routes>

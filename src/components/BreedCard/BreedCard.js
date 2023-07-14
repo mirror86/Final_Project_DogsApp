@@ -12,7 +12,7 @@ const BreedCard = ({dog, handleAddToFavourites}) => {
             <Card className="border-light shadow-lg mt-5 mb-5 ms-2 me-2 ">
                 <Card.Img variant="top" src={dog.image_link} dog={dog}/>
                 <Card.Body className="d-flex justify-content-between">
-                    <Card.Title dog={dog}>{dog.name} {dog.max_height_female} {dog.min_height_femal}</Card.Title>
+                    <Card.Title dog={dog}>{dog.name} {dog.max_weight_male} {dog.min_weight_male}</Card.Title>
                     <i className={`fa-regular fa-heart ${itsFavourite ? "fa-solid" : "fa-regular"}`}
                        onClick={onHandleIconClick}></i>
                 </Card.Body>

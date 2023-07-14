@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Button} from "react-bootstrap";
 
 
 const labelValues = {
@@ -10,7 +11,7 @@ const labelValues = {
     5: "MUST HAVE!"
 }
 
-const FormRange = () => {
+const FormRange = ({onBack}) => {
     const [value, setValue] = useState(0);
     const [label, setLabel] = useState(labelValues[0])
     const [answerValue, setAnswerValue] = useState(0)
@@ -19,9 +20,9 @@ const FormRange = () => {
         const selectedValue = parseInt(event.target.value);
         setValue(selectedValue);
         setLabel(labelValues[selectedValue]);
-        setAnswerValue(prevState => prevState + 1)
-
+        setAnswerValue(selectedValue);
     };
+
     return (
         <div>
             <input
@@ -34,8 +35,12 @@ const FormRange = () => {
             />
             <p>{label}</p>
             <p>{answerValue}</p>
+
         </div>
     );
 };
+
+
+
 
 export default FormRange;

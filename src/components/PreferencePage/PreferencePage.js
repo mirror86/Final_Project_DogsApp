@@ -1,60 +1,6 @@
 import React from 'react';
 import {Button, Form} from "react-bootstrap";
-
-const dogHeightPreferences = {
-    medium: {
-        label: "I like medium dogs",
-        heightRange: {
-            min_height_male: 15.5,
-            max_height_male: 23,
-        },
-    },
-    small: {
-        label: "I love little dogs",
-        heightRange: {
-            min_height_male: 0,
-            max_height_male: 15,
-        },
-    },
-    large: {
-        label: "The bigger the better",
-        heightRange: {
-            min_height_male: 23.5,
-            max_height_male: 35,
-        },
-    },
-    notMatter: {
-        label: "Size doesn't matter",
-        heightRange: {
-            min_height_male: 0,
-            max_height_male: 0,
-        },
-    },
-};
-
-const dogWeightPreferences = {
-   skinny: {
-        label:  "The skinny type",
-        weightRange: {
-            min_weight_male: 2,
-            max_weight_male: 60,
-        },
-    },
-    brawler: {
-        label:  "Brawler type",
-        weightRange: {
-            min_weight_male: 60.5,
-            max_weight_male: 200,
-        },
-    },
-    notMatter: {
-        label: "Doesn't matter",
-        weightRange: {
-            min_weight_male: 0,
-            max_weight_male: 0,
-        },
-    },
-};
+import {dogHeightPreferences, dogWeightPreferences} from "../../data";
 
 
 const PreferencePage = ({onOtherQuestions}) => {
@@ -66,6 +12,7 @@ const PreferencePage = ({onOtherQuestions}) => {
             <section className="w-50 mx-auto">
                 <p>choose one of the four answers</p>
                 <Form>
+                    {/* eslint-disable-next-line no-undef */}
                     {Object.entries(dogHeightPreferences).map(([key, preference]) => (
                         <div key={`height-${key}`} className="mb-3">
                             <Form.Check

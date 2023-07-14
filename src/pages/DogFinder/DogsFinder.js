@@ -6,15 +6,37 @@ import FormRange from "../../components/FormRange/FormRange";
 import QuestionnairePage from "../../components/QuestionnairePage/QuestionnairePage";
 import PreferencePage from "../../components/PreferencePage/PreferencePage";
 import {Route} from "react-router-dom";
+import {allQuestions} from "../../data";
+
 
 const DogsFinder = ({value}) => {
-    const [question, setQuestion] = useState(1)
+    const [questionNumber, setQuestionNumber] = useState(1)
     const [showPreferencePage, setShowPreferencePage] = useState(true)
-    const [answersValue, setAnswersValue] = useState(0)
+    const [currentQuestion, setCurrentQuestion] = useState(allQuestions["energy"])
+    const questionStringsArray = Object.values(allQuestions);
+    const currentIndex = questionStringsArray.indexOf(currentQuestion)
+
+    const handleLoadNextQuestion = () => {
+        if (currentIndex < questionStringsArray.length - 1){
+            const anotherQuestion = questionStringsArray[currentIndex + 1];
+            setCurrentQuestion(anotherQuestion)}
+        else {
+            alert("Przeładuj na stronę wyniku")
+        }
+    }
+
+    const handleLoadPrevQuestion = () => {
+        if (currentIndex > 0 ){
+            const anotherQuestion = questionStringsArray[currentIndex - 1];
+            setCurrentQuestion(anotherQuestion)}
+
+    }
     const handleNextQuestion = () => {
-        setQuestion(prevState => prevState + 1)}
+        setQuestionNumber(prevState => prevState + 1)
+    handleLoadNextQuestion()
+    }
     const handlePrevQuestion = () => {
-        if(question < 2){
+        if(questionNumber < 2){
             setShowPreferencePage(true)
 
         }
@@ -22,15 +44,14 @@ const DogsFinder = ({value}) => {
         //     alert("to koniec")
         // }
         else {
-        setQuestion(prevState => prevState - 1)}}
+        setQuestionNumber(prevState => prevState - 1)
+        handleLoadPrevQuestion()}}
 
     const handleShowQuestionnairePage = () => {
         setShowPreferencePage(false)
     }
 
-    const handleSliderFormSubmit = (answer) => {
-        setAnswersValue(prevState => [...prevState, answer]);
-    };
+
 
     return (
         <>
@@ -40,16 +61,8 @@ const DogsFinder = ({value}) => {
                         {showPreferencePage ? (
                             <PreferencePage onOtherQuestions={handleShowQuestionnairePage} />
                         ) : (
-                            <QuestionnairePage question={question} answersValue={answersValue} onBack={handlePrevQuestion} onNext={handleNextQuestion} />
+                            <QuestionnairePage questionNumber={questionNumber} currentQuestion={currentQuestion} onBack={handlePrevQuestion} onNext={handleNextQuestion} />
                         )}
-                        {/*<div className="align-self-md-auto-end align-content-sm-center-center">*/}
-                        {/*    /!*<Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3" onBack={handlePrevQuestion}>Back</Button>*!/*/}
-                        {/*    {showPreferencePage ? (*/}
-                        {/*        <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3" >Next1</Button>*/}
-                        {/*    ) : (*/}
-                        {/*        <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3" onClick={handleNextQuestion} onNext={handleSliderFormSubmit}>Next</Button>*/}
-                        {/*    )}*/}
-                        {/*</div>*/}
                     </Col>
                 </Row>
             </Container>

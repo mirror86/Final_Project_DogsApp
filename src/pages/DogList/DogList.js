@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react';
 import Container from "react-bootstrap/Container";
 import {Button, Row, Spinner} from "react-bootstrap";
 import BreedCard from "../../components/BreedCard/BreedCard";
+import {apiKey, apiUrl} from "../../data";
 
-const apiUrl = "https://api.api-ninjas.com/v1/dogs?min_height=1";
-const apiKey = "Puy2zDCkC5Og1tl/a9AkYQ==duVwVJvXcT0MnzNG";
+
 const DogList = () => {
     const [dogData, setDogData] = useState(false);
     const [siteNumber, setSiteNumber] = useState(1);

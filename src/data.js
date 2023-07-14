@@ -65,3 +65,12 @@ export const dogWeightPreferences = {
 
 export const apiUrl = "https://api.api-ninjas.com/v1/dogs?min_height=1";
 export const apiKey = "Puy2zDCkC5Og1tl/a9AkYQ==duVwVJvXcT0MnzNG";
+
+export const labelValues = {
+    0: "Not important",
+    1: "It doesn't fit at all",
+    2: "It doesn't quite fit",
+    3: "It fits a bit",
+    4: "It fits well",
+    5: "It fits perfectly!"
+}

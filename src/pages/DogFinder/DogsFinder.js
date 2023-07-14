@@ -1,56 +1,63 @@
 import React, {useState} from 'react';
 import Container from "react-bootstrap/Container";
-import {Button, Col, Row} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 import Footer from "../../components/Footer/Footer";
-import FormRange from "../../components/FormRange/FormRange";
 import QuestionnairePage from "../../components/QuestionnairePage/QuestionnairePage";
 import PreferencePage from "../../components/PreferencePage/PreferencePage";
-import {Route} from "react-router-dom";
-import {allQuestions} from "../../data";
+import {allQuestions, labelValues} from "../../data";
 
 
-const DogsFinder = ({value}) => {
+const DogsFinder = () => {
     const [questionNumber, setQuestionNumber] = useState(1)
     const [showPreferencePage, setShowPreferencePage] = useState(true)
     const [currentQuestion, setCurrentQuestion] = useState(allQuestions["energy"])
     const questionStringsArray = Object.values(allQuestions);
     const currentIndex = questionStringsArray.indexOf(currentQuestion)
+    const [value, setValue] = useState(0);
+    const [label, setLabel] = useState(labelValues[0])
+    const handleRangeChange = (event) => {
+        const selectedValue = parseInt(event.target.value);
+        setValue(selectedValue);
+        setLabel(labelValues[selectedValue]);
 
+    };
     const handleLoadNextQuestion = () => {
-        if (currentIndex < questionStringsArray.length - 1){
+        if (currentIndex < questionStringsArray.length - 1) {
             const anotherQuestion = questionStringsArray[currentIndex + 1];
-            setCurrentQuestion(anotherQuestion)}
-        else {
+            setCurrentQuestion(anotherQuestion)
+        } else {
             alert("Przeładuj na stronę wyniku")
         }
     }
 
     const handleLoadPrevQuestion = () => {
-        if (currentIndex > 0 ){
+        if (currentIndex > 0) {
             const anotherQuestion = questionStringsArray[currentIndex - 1];
-            setCurrentQuestion(anotherQuestion)}
-
+            setCurrentQuestion(anotherQuestion)
+        }
     }
     const handleNextQuestion = () => {
         setQuestionNumber(prevState => prevState + 1)
-    handleLoadNextQuestion()
+        handleLoadNextQuestion()
+        setValue(prevState => prevState - value)
+
     }
     const handlePrevQuestion = () => {
-        if(questionNumber < 2){
+        if (questionNumber < 2) {
             setShowPreferencePage(true)
 
-        }
-        // else if (question >= 5) {
-        //     alert("to koniec")
-        // }
+        } // jeśli to ostatnia strona to zmien stan buttona na Wynik
+
         else {
-        setQuestionNumber(prevState => prevState - 1)
-        handleLoadPrevQuestion()}}
+            setQuestionNumber(prevState => prevState - 1)
+            handleLoadPrevQuestion()
+        }
+        setValue(prevState => prevState - value)
+    }
 
     const handleShowQuestionnairePage = () => {
         setShowPreferencePage(false)
     }
-
 
 
     return (
@@ -59,9 +66,11 @@ const DogsFinder = ({value}) => {
                 <Row className="text-center justify-content-center mt-auto mb-auto mx-auto p-2 h-50 w-50">
                     <Col xs={{span: 6, offset: 3}} className="d-flex flex-column justify-content-center">
                         {showPreferencePage ? (
-                            <PreferencePage onOtherQuestions={handleShowQuestionnairePage} />
+                            <PreferencePage onOtherQuestions={handleShowQuestionnairePage}/>
                         ) : (
-                            <QuestionnairePage questionNumber={questionNumber} currentQuestion={currentQuestion} onBack={handlePrevQuestion} onNext={handleNextQuestion} />
+                            <QuestionnairePage questionNumber={questionNumber} currentQuestion={currentQuestion}
+                                               label={label} value={value} onBack={handlePrevQuestion}
+                                               onNext={handleNextQuestion} rangeValue={handleRangeChange}/>
                         )}
                     </Col>
                 </Row>

@@ -16,7 +16,7 @@ const PreferencePage = ({onOtherQuestions}) => {
                     {Object.entries(dogHeightPreferences).map(([key, preference]) => (
                         <div key={`height-${key}`} className="mb-3">
                             <Form.Check
-                                className="d-flex flex-row-reverse justify-content-between p-1"
+                                className="d-flex flex-row-reverse justify-content-between p-1 ms-3 me-5"
                                 type="radio"
                                 id={`height-${key}`}
                                 label={preference.label}
@@ -27,7 +27,7 @@ const PreferencePage = ({onOtherQuestions}) => {
                             {Object.entries(dogWeightPreferences).map(([key, preference]) => (
                                 <div key={`weight-${key}`} className="mb-3">
                                     <Form.Check
-                                        className="d-flex flex-row-reverse justify-content-between p-1"
+                                        className="d-flex flex-row-reverse justify-content-between p-1 ms-3 me-5"
                                         type="radio"
                                         id={`weight-${key}`}
                                         label={preference.label}

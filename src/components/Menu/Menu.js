@@ -4,8 +4,8 @@ import Container from "react-bootstrap/Container";
 
 const Menu = () => {
     return (
-        <Navbar bg="light" expand="lg" className="z-1 bg-opacity-10 ">
-            <Container>
+        <Navbar bg="light" expand="lg" className="z-1 bg-opacity-10">
+            <Container fluid>
                 <Navbar.Brand href="/">Dogs App</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">

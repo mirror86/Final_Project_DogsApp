@@ -1,29 +1,34 @@
 import React from 'react';
 
 const Answers = ({answersQuestionnaire, answersPreference}) => {
-    const renderAnswers = () => {
+    const renderQuestionnaireAnsw = () => {
         if (answersQuestionnaire && typeof answersQuestionnaire === "object") {
             return Object.entries(answersQuestionnaire).map(([key, value]) => (
                 <div key={key}>
-                    Question {key}: {value.answerValue}
+                    {key}: {value.answerValue}
                 </div>
             ));
         } else {
             return null;
         }
     };
+    const renderPreferenceAnsw = () => {
+        if (answersPreference && typeof answersPreference === "object") {
+            return Object.entries(answersPreference).map(([key, value]) => (
+                <div key={key}>
+                    {key}: {value.answerValue}
+                </div>
+            ));
+        } else {
+            return null;
+        }
+    };
+    {renderPreferenceAnsw()}
+    {renderQuestionnaireAnsw()}
     return (
         <>
-            <div>
-                {Object.entries(answersPreference).map(([key, value]) => (
-                    <div key={key}>
-                        {key}: {value.min} - {value.max}
-                    </div>
-                ))}
-                {renderAnswers()}
-
-            </div>
-            </>
+            <h1>One day your dream dog will be waiting for you here</h1>
+        </>
     );
 
 };

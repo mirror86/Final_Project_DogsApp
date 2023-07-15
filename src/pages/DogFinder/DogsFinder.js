@@ -98,7 +98,7 @@ const [answersPreference, setAnswersPreference] = useState({})
                     <Col xs={{span: 6, offset: 3}} className="d-flex flex-column justify-content-center">
                         {showPreferencePage ? (
                             <PreferencePage answerQ={answersQuestionnaire} answerP={answersPreference} dogHeightObj={dogHeightPreferences} dogWeightObj={dogWeightPreferences}
-                                onOtherQuestions={handleShowQuestionnairePage}
+                                            onOtherQuestions={handleShowQuestionnairePage}
                                             weightPreferences={handleWeightPreferences}
                                             heightPreferences={handleHeightPreferences}/>
                         ) : (

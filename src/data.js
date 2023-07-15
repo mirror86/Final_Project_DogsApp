@@ -9,6 +9,13 @@ export const allQuestions = {
     good_with_other_dogs:"The dog must fully accept other dogs"
 }
 export const dogHeightPreferences = {
+    large: {
+        label: "The bigger the better",
+        heightRange: {
+            min_height_male: 23.5,
+            max_height_male: 35,
+        },
+    },
     medium: {
         label: "I like medium dogs",
         heightRange: {
@@ -21,13 +28,6 @@ export const dogHeightPreferences = {
         heightRange: {
             min_height_male: 0,
             max_height_male: 15,
-        },
-    },
-    large: {
-        label: "The bigger the better",
-        heightRange: {
-            min_height_male: 23.5,
-            max_height_male: 35,
         },
     },
     notMatter: {

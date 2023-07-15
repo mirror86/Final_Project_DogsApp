@@ -64,20 +64,23 @@ const [answersPreference, setAnswersPreference] = useState({})
         }));
     };
 
-    const handleHeightPreferences = (e) => {
-        const heightPreferences = e.target.value;
-        const selectedHeightPreference = dogHeightPreferences[heightPreferences];
+    const handleHeightPreferences = ({key}) => {
+
+        const selectedHeightPreference = dogHeightPreferences[key];
         setAnswersPreference(prevState => ({
             ...prevState,
-            height: {min: selectedHeightPreference.min_height_male, max: selectedHeightPreference.max_height_male},
+           height: {min: selectedHeightPreference.heightRange.min_height_male, max: selectedHeightPreference.heightRange.max_height_male},
         }));
     }
-    const handleWeightPreferences = (e) => {
-        const weightPreferences = e.target.value;
-        const selectedWeightPreferences = dogWeightPreferences[weightPreferences]
-        setAnswersPreference(prevState => ({
+    const handleWeightPreferences = (key) => {
+        const selectedWeightPreferences = dogWeightPreferences[key];
+        setAnswersPreference((prevState) => ({
             ...prevState,
-            weight: {min: selectedWeightPreferences.min_weight_male, max: selectedWeightPreferences.max_weight_male},
+        weight: {
+            min: selectedWeightPreferences.weightRange.min_weight_male,
+            max: selectedWeightPreferences.weightRange.max_weight_male,
+        }
+
         }))
     }
 
@@ -94,7 +97,7 @@ const [answersPreference, setAnswersPreference] = useState({})
                 <Row className="text-center justify-content-center mt-auto mb-auto mx-auto p-2 h-50 w-50">
                     <Col xs={{span: 6, offset: 3}} className="d-flex flex-column justify-content-center">
                         {showPreferencePage ? (
-                            <PreferencePage dogHeightObj={dogHeightPreferences} dogWeightObj={dogWeightPreferences}
+                            <PreferencePage answerQ={answersQuestionnaire} answerP={answersPreference} dogHeightObj={dogHeightPreferences} dogWeightObj={dogWeightPreferences}
                                 onOtherQuestions={handleShowQuestionnairePage}
                                             weightPreferences={handleWeightPreferences}
                                             heightPreferences={handleHeightPreferences}/>

@@ -21,7 +21,7 @@ const PreferencePage = ({onOtherQuestions, weightPreferences, heightPreferences,
                                 id={`height-${key}`}
                                 label={preference.label}
                                 name="group1"
-                                onChange={heightPreferences}
+                                onChange={() =>heightPreferences({key})}
                             />
                         </div>  ))}
                     <p>choose one of the three answers</p>
@@ -33,7 +33,7 @@ const PreferencePage = ({onOtherQuestions, weightPreferences, heightPreferences,
                                         id={`weight-${key}`}
                                         label={preference.label}
                                         name="group2"
-                                        onChange={weightPreferences}
+                                        onChange={()=> weightPreferences(key)}
                                     />
                         </div>
                     ))}

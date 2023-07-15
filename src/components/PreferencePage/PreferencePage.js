@@ -3,7 +3,7 @@ import {Button, Form} from "react-bootstrap";
 import {dogHeightPreferences, dogWeightPreferences} from "../../data";
 
 
-const PreferencePage = ({onOtherQuestions, weightPreferences, heightPreferences, dogHeightObj, dogWeightObj}) => {
+const PreferencePage = ({onOtherQuestions, weightPreferences, heightPreferences}) => {
     return (
         <>
             <header>
@@ -12,8 +12,7 @@ const PreferencePage = ({onOtherQuestions, weightPreferences, heightPreferences,
             <section className="w-50 mx-auto">
                 <p>choose one of the four answers</p>
                 <Form>
-                    {/* eslint-disable-next-line no-undef */}
-                    {Object.entries(dogHeightObj).map(([key, preference]) => (
+                    {Object.entries(dogHeightPreferences).map(([key, preference]) => (
                         <div key={`height-${key}`} className="mb-3">
                             <Form.Check
                                 className="d-flex flex-row-reverse justify-content-between p-1 ms-3 me-5"
@@ -25,7 +24,7 @@ const PreferencePage = ({onOtherQuestions, weightPreferences, heightPreferences,
                             />
                         </div>  ))}
                     <p>choose one of the three answers</p>
-                            {Object.entries(dogWeightObj).map(([key, preference]) => (
+                            {Object.entries(dogWeightPreferences).map(([key, preference]) => (
                                 <div key={`weight-${key}`} className="mb-3">
                                     <Form.Check
                                         className="d-flex flex-row-reverse justify-content-between p-1 ms-3 me-5"

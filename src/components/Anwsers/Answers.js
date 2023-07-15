@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Answers = ({answersQuestionnaire, answersPreference, questionNumber, answerValue}) => {
+const Answers = ({answersQuestionnaire, answersPreference}) => {
     const renderAnswers = () => {
         if (answersQuestionnaire && typeof answersQuestionnaire === "object") {
             return Object.entries(answersQuestionnaire).map(([key, value]) => (
                 <div key={key}>
-                    Question {key}: {value}
+                    Question {key}: {value.answerValue}
                 </div>
             ));
         } else {
@@ -14,17 +14,14 @@ const Answers = ({answersQuestionnaire, answersPreference, questionNumber, answe
     };
     return (
         <>
-
             <div>
-                {renderAnswers()}
                 {Object.entries(answersPreference).map(([key, value]) => (
                     <div key={key}>
                         {key}: {value.min} - {value.max}
                     </div>
                 ))}
-                <div>
-                    Question {questionNumber}: {answerValue}
-                </div>
+                {renderAnswers()}
+
             </div>
             </>
     );

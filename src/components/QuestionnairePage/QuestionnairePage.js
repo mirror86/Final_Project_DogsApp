@@ -16,7 +16,7 @@ const QuestionnairePage = ({questionNumber, onBack, onNext, currentQuestion, ran
                 <FormRange value={answerValue} label={label} rangeValue={rangeValue}/>
                 <div className="d-flex justify-content-end me-5">
                     <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3" onClick={onBack}>Back</Button>
-                    <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3" onClick={onNext} onSubmit={onSaveAnswerValue} >Next</Button>
+                    <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3" onClick={onNext} onSubmit={onSaveAnswerValue} >{questionNumber === 7 ? "Score" : "Next"}</Button>
                 </div>
             </section>
 

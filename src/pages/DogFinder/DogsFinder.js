@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Container from "react-bootstrap/Container";
 import {Col, Row} from "react-bootstrap";
 import Footer from "../../components/Footer/Footer";
@@ -18,78 +18,99 @@ const DogsFinder = () => {
     const [label, setLabel] = useState(labelValues[0])
     const [answersQuestionnaire, setAnswersQuestionnaire] = useState({})
 const [answersPreference, setAnswersPreference] = useState({})
+    const [prevAnswerValue, setPrevAnswerValue] = useState(0);
+const [showAnswers, setShowAnswers] = useState(false)
+    //navigating the survey
+    const handleFinderNextSite = () => {
+        setQuestionNumber(prevState => prevState + 1)
+        handleLoadNextQuestion()
+        handleSaveAnswerFromQuestionnaire()
+        console.log(answersQuestionnaire)
+
+
+    }
+    const handleFinderPrevSite = () => {
+        if (questionNumber <= 1) {
+            setShowPreferencePage(true)
+
+        } else if (questionNumber > 7) {
+            setShowAnswers(true)
+
+        }// jeśli to ostatnia strona to zmien stan buttona na Wynik
+
+        else {
+            setQuestionNumber(prevState => prevState - 1)
+            handleLoadPrevQuestion()
+        }
+
+    }
+
+    //RangeForm value matched label
     const handleRangeChange = (event) => {
         const selectedValue = parseInt(event.target.value);
         setAnswerValue(selectedValue);
         setLabel(labelValues[selectedValue]);
 
     };
+
+
+    //loading next question from Obj allQuestions
     const handleLoadNextQuestion = () => {
         if (currentIndex < questionStringsArray.length - 1) {
             const anotherQuestion = questionStringsArray[currentIndex + 1];
             setCurrentQuestion(anotherQuestion)
         } else {
-            alert("Przeładuj na stronę wyniku")
+            setShowAnswers(true)
         }
     }
 
+    //loading previous question from Obj allQuestions
     const handleLoadPrevQuestion = () => {
         if (currentIndex > 0) {
             const anotherQuestion = questionStringsArray[currentIndex - 1];
             setCurrentQuestion(anotherQuestion)
         }
     }
-    const handleNextQuestion = () => {
-        setQuestionNumber(prevState => prevState + 1)
-        handleLoadNextQuestion()
-        // setAnswerValue(0)
+
+    // creating Obj with answers from Preference
+    const handleShowQuestionnairePage = () => {
+        const answerPreference = {...answersPreference,};
+        console.log(answerPreference)
+        setShowPreferencePage(false)
     }
-    const handlePrevQuestion = () => {
-        if (questionNumber < 2) {
-            setShowPreferencePage(true)
-
-        } // jeśli to ostatnia strona to zmien stan buttona na Wynik
-
-        else {
-            setQuestionNumber(prevState => prevState - 1)
-            handleLoadPrevQuestion()
-        }
-        // setAnswerValue(0)
-    }
-
-    const handleSaveAnswer = () => {
-        setAnswersQuestionnaire((prevState) => ({
-            ...prevState,
-            [questionNumber]: answerValue,
-        }));
-    };
-
     const handleHeightPreferences = ({key}) => {
-
         const selectedHeightPreference = dogHeightPreferences[key];
         setAnswersPreference(prevState => ({
             ...prevState,
-           height: {min: selectedHeightPreference.heightRange.min_height_male, max: selectedHeightPreference.heightRange.max_height_male},
+            height: {min: selectedHeightPreference.heightRange.min_height_male, max: selectedHeightPreference.heightRange.max_height_male},
         }));
     }
     const handleWeightPreferences = (key) => {
         const selectedWeightPreferences = dogWeightPreferences[key];
         setAnswersPreference((prevState) => ({
             ...prevState,
-        weight: {
-            min: selectedWeightPreferences.weightRange.min_weight_male,
-            max: selectedWeightPreferences.weightRange.max_weight_male,
-        }
+            weight: {
+                min: selectedWeightPreferences.weightRange.min_weight_male,
+                max: selectedWeightPreferences.weightRange.max_weight_male,
+            }
 
         }))
+
     }
 
-
-    const handleShowQuestionnairePage = () => {
-        const answerPreference = {...answersPreference,};
-        console.log(answerPreference)
-        setShowPreferencePage(false)
-    }
+// creating Obj with answers from Questionnaire
+    const handleSaveAnswerFromQuestionnaire = () => {
+        // const answerQuestionnaire = {...answersQuestionnaire,}
+        setAnswersQuestionnaire((prevState) => ({
+            ...prevState,
+            [questionNumber]: {answerValue},
+        }));
+        setPrevAnswerValue(answerValue);
+    };
+    // // actualization of state answersQuestionnaire
+    useEffect(() => {
+        handleSaveAnswerFromQuestionnaire();
+    }, [questionNumber]);
 
     return (
         <>
@@ -97,17 +118,18 @@ const [answersPreference, setAnswersPreference] = useState({})
                 <Row className="text-center justify-content-center mt-auto mb-auto mx-auto p-2 h-50 w-50">
                     <Col xs={{span: 6, offset: 3}} className="d-flex flex-column justify-content-center">
                         {showPreferencePage ? (
-                            <PreferencePage answerQ={answersQuestionnaire} answerP={answersPreference} dogHeightObj={dogHeightPreferences} dogWeightObj={dogWeightPreferences}
+                            <PreferencePage
                                             onOtherQuestions={handleShowQuestionnairePage}
                                             weightPreferences={handleWeightPreferences}
                                             heightPreferences={handleHeightPreferences}/>
-                        ) : (
+                        ) :  questionNumber <=7 ?(
                             <QuestionnairePage questionNumber={questionNumber} currentQuestion={currentQuestion}
-                                               label={label} answerValue={answerValue} onBack={handlePrevQuestion}
-                                               onNext={handleNextQuestion} rangeValue={handleRangeChange}
-                                               onSaveAnswerValue={handleSaveAnswer}/>
-                        )}
-                        <Answers answersQestionnaire={answersQuestionnaire} answersPreference={answersPreference} questionNumber={questionNumber} answerValue={answerValue}/>
+                                               label={label} answerValue={answerValue} onBack={handleFinderPrevSite}
+                                               onNext={handleFinderNextSite} rangeValue={handleRangeChange}
+                                               onSaveAnswerValue={handleSaveAnswerFromQuestionnaire}/>
+                        ): (
+                            <Answers answersQestionnaire={answersQuestionnaire} answersPreference={answersPreference} questionNumber={questionNumber} answerValue={answerValue}/>
+                            )}
                     </Col>
                 </Row>
             </Container>

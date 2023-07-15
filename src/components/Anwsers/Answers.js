@@ -1,15 +1,32 @@
 import React from 'react';
 
-const Answers = ({answers, questionNumber, answerValue}) => {
-
-    return (
-        <div>
-            {Object.entries(answers).map(([question, answer]) => (
-                <div key={question}>
-                    Question {question}: {answer}
+const Answers = ({answersQuestionnaire, answersPreference, questionNumber, answerValue}) => {
+    const renderAnswers = () => {
+        if (answersQuestionnaire && typeof answersQuestionnaire === "object") {
+            return Object.entries(answersQuestionnaire).map(([key, value]) => (
+                <div key={key}>
+                    Question {key}: {value}
                 </div>
-            ))}
-        </div>
+            ));
+        } else {
+            return null;
+        }
+    };
+    return (
+        <>
+
+            <div>
+                {renderAnswers()}
+                {Object.entries(answersPreference).map(([key, value]) => (
+                    <div key={key}>
+                        {key}: {value.min} - {value.max}
+                    </div>
+                ))}
+                <div>
+                    Question {questionNumber}: {answerValue}
+                </div>
+            </div>
+            </>
     );
 
 };

@@ -3,7 +3,7 @@ import {Button, Form} from "react-bootstrap";
 import {dogHeightPreferences, dogWeightPreferences} from "../../data";
 
 
-const PreferencePage = ({onOtherQuestions, weightPreference, heightPreference}) => {
+const PreferencePage = ({onOtherQuestions, weightPreferences, heightPreferences, dogHeightObj, dogWeightObj}) => {
     return (
         <>
             <header>
@@ -13,7 +13,7 @@ const PreferencePage = ({onOtherQuestions, weightPreference, heightPreference}) 
                 <p>choose one of the four answers</p>
                 <Form>
                     {/* eslint-disable-next-line no-undef */}
-                    {Object.entries(dogHeightPreferences).map(([key, preference]) => (
+                    {Object.entries(dogHeightObj).map(([key, preference]) => (
                         <div key={`height-${key}`} className="mb-3">
                             <Form.Check
                                 className="d-flex flex-row-reverse justify-content-between p-1 ms-3 me-5"
@@ -21,11 +21,11 @@ const PreferencePage = ({onOtherQuestions, weightPreference, heightPreference}) 
                                 id={`height-${key}`}
                                 label={preference.label}
                                 name="group1"
-                                onChange={heightPreference}
+                                onChange={heightPreferences}
                             />
                         </div>  ))}
                     <p>choose one of the three answers</p>
-                            {Object.entries(dogWeightPreferences).map(([key, preference]) => (
+                            {Object.entries(dogWeightObj).map(([key, preference]) => (
                                 <div key={`weight-${key}`} className="mb-3">
                                     <Form.Check
                                         className="d-flex flex-row-reverse justify-content-between p-1 ms-3 me-5"
@@ -33,7 +33,7 @@ const PreferencePage = ({onOtherQuestions, weightPreference, heightPreference}) 
                                         id={`weight-${key}`}
                                         label={preference.label}
                                         name="group2"
-                                        onChange={weightPreference}
+                                        onChange={weightPreferences}
                                     />
                         </div>
                     ))}

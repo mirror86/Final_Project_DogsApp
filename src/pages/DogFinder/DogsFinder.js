@@ -16,8 +16,8 @@ const DogsFinder = () => {
     const currentIndex = questionStringsArray.indexOf(currentQuestion)
     const [answerValue, setAnswerValue] = useState(0);
     const [label, setLabel] = useState(labelValues[0])
-    const [answers, setAnswers] = useState({})
-
+    const [answersQuestionnaire, setAnswersQuestionnaire] = useState({})
+const [answersPreference, setAnswersPreference] = useState({})
     const handleRangeChange = (event) => {
         const selectedValue = parseInt(event.target.value);
         setAnswerValue(selectedValue);
@@ -58,42 +58,53 @@ const DogsFinder = () => {
     }
 
     const handleSaveAnswer = () => {
-        setAnswers((prevState) => ({
+        setAnswersQuestionnaire((prevState) => ({
             ...prevState,
             [questionNumber]: answerValue,
         }));
     };
 
-    const handleHeightPreferences =(e) => {
+    const handleHeightPreferences = (e) => {
         const heightPreferences = e.target.value;
-        setAnswers(prevState => ({...prevState,height: dogHeightPreferences[heightPreferences].heightRange})
-    )}
-        const handleWeightPreferences =(e) => {
-            const weightPreferences = e.target.value;
-            setAnswers(prevState => ({...prevState,weight: dogWeightPreferences[weightPreferences].weightRange})
-            )
+        const selectedHeightPreference = dogHeightPreferences[heightPreferences];
+        setAnswersPreference(prevState => ({
+            ...prevState,
+            height: {min: selectedHeightPreference.min_height_male, max: selectedHeightPreference.max_height_male},
+        }));
+    }
+    const handleWeightPreferences = (e) => {
+        const weightPreferences = e.target.value;
+        const selectedWeightPreferences = dogWeightPreferences[weightPreferences]
+        setAnswersPreference(prevState => ({
+            ...prevState,
+            weight: {min: selectedWeightPreferences.min_weight_male, max: selectedWeightPreferences.max_weight_male},
+        }))
     }
 
 
     const handleShowQuestionnairePage = () => {
-        const answer = {...answers,};
-        console.log(answer)
+        const answerPreference = {...answersPreference,};
+        console.log(answerPreference)
         setShowPreferencePage(false)
     }
-// nie można przypisywać tego do answer bo w tym wypadku obiekt ma zwracac zakres - poczytaj jak zwracac zakres w wartosci i stworz nowe stany
+
     return (
         <>
             <Container fluid className="finder__container h-75  main shadow-lg d-flex justify-content-center bg-white">
                 <Row className="text-center justify-content-center mt-auto mb-auto mx-auto p-2 h-50 w-50">
                     <Col xs={{span: 6, offset: 3}} className="d-flex flex-column justify-content-center">
                         {showPreferencePage ? (
-                            <PreferencePage onOtherQuestions={handleShowQuestionnairePage} weightPreference={handleWeightPreferences} heightPreference={handleHeightPreferences}/>
+                            <PreferencePage dogHeightObj={dogHeightPreferences} dogWeightObj={dogWeightPreferences}
+                                onOtherQuestions={handleShowQuestionnairePage}
+                                            weightPreferences={handleWeightPreferences}
+                                            heightPreferences={handleHeightPreferences}/>
                         ) : (
                             <QuestionnairePage questionNumber={questionNumber} currentQuestion={currentQuestion}
                                                label={label} answerValue={answerValue} onBack={handlePrevQuestion}
-                                               onNext={handleNextQuestion} rangeValue={handleRangeChange} onSaveAnswerValue={handleSaveAnswer}/>
+                                               onNext={handleNextQuestion} rangeValue={handleRangeChange}
+                                               onSaveAnswerValue={handleSaveAnswer}/>
                         )}
-                        <Answers answers={answers} questionNumber={questionNumber} answerValue={answerValue}/>
+                        <Answers answersQestionnaire={answersQuestionnaire} answersPreference={answersPreference} questionNumber={questionNumber} answerValue={answerValue}/>
                     </Col>
                 </Row>
             </Container>

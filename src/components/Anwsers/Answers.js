@@ -1,16 +1,17 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-const Answers = ({answersValue}) => {
+const Answers = ({answers, questionNumber, answerValue}) => {
 
     return (
         <div>
-            {answersValue.map((answer, index) => (
-                <div key={index}>
-                    Question {index + 1}: {answer}
+            {Object.entries(answers).map(([question, answer]) => (
+                <div key={question}>
+                    Question {question}: {answer}
                 </div>
             ))}
         </div>
     );
+
 };
 
 export default Answers;

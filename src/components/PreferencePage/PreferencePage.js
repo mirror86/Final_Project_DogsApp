@@ -3,7 +3,7 @@ import {Button, Form} from "react-bootstrap";
 import {dogHeightPreferences, dogWeightPreferences} from "../../data";
 
 
-const PreferencePage = ({onOtherQuestions}) => {
+const PreferencePage = ({onOtherQuestions, weightPreference, heightPreference}) => {
     return (
         <>
             <header>
@@ -21,6 +21,7 @@ const PreferencePage = ({onOtherQuestions}) => {
                                 id={`height-${key}`}
                                 label={preference.label}
                                 name="group1"
+                                onChange={heightPreference}
                             />
                         </div>  ))}
                     <p>choose one of the three answers</p>
@@ -32,6 +33,7 @@ const PreferencePage = ({onOtherQuestions}) => {
                                         id={`weight-${key}`}
                                         label={preference.label}
                                         name="group2"
+                                        onChange={weightPreference}
                                     />
                         </div>
                     ))}

@@ -10,7 +10,7 @@ const DogList = () => {
     const [siteNumber, setSiteNumber] = useState(1);
     const [favDogs, setFavDogs] = useState([])
     const loadData = (offset) => {
-        fetch(`${apiUrl}&offset=${offset}`, {
+        fetch(`${apiUrl}min_height=1&offset=${offset}`, {
             method: "GET",
             headers: {
                 'X-Api-Key': apiKey,

@@ -151,7 +151,9 @@ const DogsFinder = ({setDogData}) => {
             .then(data => setDogData(data))
             .catch(err => console.error(err))
     }
-
+useEffect(() => {
+        handleSaveAnswerFromQuestionnaire();
+    },[findUrl])
     return (
         <>
             <Container fluid className="finder__container h-75  main shadow-lg d-flex justify-content-center bg-white">

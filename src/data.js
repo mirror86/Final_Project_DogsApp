@@ -74,3 +74,4 @@ export const labelValues = {
     4: "It fits well",
     5: "It fits perfectly!"
 }
+

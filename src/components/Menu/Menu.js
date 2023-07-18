@@ -1,6 +1,7 @@
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from "react-bootstrap/Container";
+import {Link} from "react-router-dom";
 
 const Menu = () => {
     return (
@@ -13,13 +14,13 @@ const Menu = () => {
                         {/*<Nav.Link>*/}
                         {/*    <Link to="/">Dogs App</Link>*/}
                         {/*</Nav.Link>*/}
-                        <Nav.Link href="/finder">
+                        <Nav.Link as={Link} to="/finder">
                             Dogs Finder
                         </Nav.Link>
-                        <Nav.Link href="/list">
+                        <Nav.Link as={Link} to="/list">
                             Dogs List
                         </Nav.Link>
-                        <Nav.Link href="/favourites">
+                        <Nav.Link as={Link} to="/favourites">
                             My Favourites
                         </Nav.Link>
                     </Nav>

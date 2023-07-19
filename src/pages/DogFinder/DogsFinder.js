@@ -20,10 +20,11 @@ const DogsFinder = () => {
     const [label, setLabel] = useState(labelValues[0])
     const [answersQuestionnaire, setAnswersQuestionnaire] = useState({})
     const [answersPreference, setAnswersPreference] = useState({})
-    // const [prevAnswerValue, setPrevAnswerValue] = useState(0);
-    // const [showAnswers, setShowAnswers] = useState(false)
     const [findUrl, setFindUrl] = useState(apiUrl);
     const {setDogData} = useContext(DogDataContext)
+    const [heightSelected, setHeightSelected] = useState(false);
+    const [weightSelected, setWeightSelected] = useState(false)
+
 
     //navigating the survey
     const handleFinderNextSite = async () => {
@@ -65,21 +66,38 @@ const DogsFinder = () => {
         // }
     }
 
+
     //loading previous question from Obj allQuestions
     const handleLoadPrevQuestion = () => {
         if (currentIndex > 0) {
             const anotherQuestion = questionStringsArray[currentIndex - 1];
             setCurrentQuestion(anotherQuestion)
-            setAnswerValue(0)
         }
+        setWeightSelected(false)
+        setHeightSelected(false)
     }
+
+
+
 
     // creating Obj with answers from Preference
     const handleShowQuestionnairePage = () => {
         const answerPreference = {...answersPreference,};
         console.log(answerPreference)
         setShowPreferencePage(false)
+
     }
+
+    const handleGoToQuestionnaire = () => {
+
+            if (weightSelected && heightSelected) {
+                handleShowQuestionnairePage();
+            } else {
+                alert("You must tick the answer in both sections");
+            }
+    }
+
+
     const handleHeightPreferences = ({key}) => {
         const selectedHeightPreference = dogHeightPreferences[key];
         setAnswersPreference(prevState => ({
@@ -89,8 +107,9 @@ const DogsFinder = () => {
                 max: selectedHeightPreference.heightRange.max_height_male
             },
         }));
+        setHeightSelected(true)
     }
-    const handleWeightPreferences = (key) => {
+    const handleWeightPreferences = ({key}) => {
         const selectedWeightPreferences = dogWeightPreferences[key];
         setAnswersPreference((prevState) => ({
             ...prevState,
@@ -100,7 +119,17 @@ const DogsFinder = () => {
             }
 
         }))
+        setWeightSelected(true)
 
+    }
+const handleHeightChange =(key) => {
+        handleHeightPreferences(key)
+    setHeightSelected(true)
+}
+
+    const handleWeightChange =(key) => {
+        handleWeightPreferences(key)
+        setWeightSelected(true)
     }
 
 // creating Obj with answers from Questionnaire
@@ -209,6 +238,7 @@ const DogsFinder = () => {
         }
     }, [findUrl]);
 
+    // tu trzeba zmienić, bo po powrocie nie działą alert
     return (
         <>
             <Container fluid className="finder__container h-75  main shadow-lg d-flex justify-content-center bg-white">
@@ -216,9 +246,9 @@ const DogsFinder = () => {
                     <Col xs={{span: 6, offset: 3}} className="d-flex flex-column justify-content-center">
                         {showPreferencePage ? (
                             <PreferencePage
-                                onOtherQuestions={handleShowQuestionnairePage}
-                                weightPreferences={handleWeightPreferences}
-                                heightPreferences={handleHeightPreferences}/>
+                                onOtherQuestions={handleGoToQuestionnaire}
+                                weightPreferencesMustHave={handleWeightChange}
+                                heightPreferencesMustHave={handleHeightChange}/>
                         ) : questionNumber <= 7 ? (
                             <QuestionnairePage questionNumber={questionNumber} currentQuestion={currentQuestion}
                                                label={label} answerValue={answerValue} onBack={handleFinderPrevSite}

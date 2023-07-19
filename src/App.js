@@ -15,9 +15,9 @@ function App() {
     const [dogData, setDogData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [favDogs, setFavDogs] = useState([]);
-    const loadData = (offset) => {
+    const loadData = async (offset) => {
         setIsLoading(true);
-        fetch(`${apiUrl}min_height=1&offset=${offset}`, {
+       await fetch(`${apiUrl}min_height=1&offset=${offset}`, {
             method: "GET",
             headers: {
                 'X-Api-Key': apiKey,
@@ -40,6 +40,10 @@ function App() {
         }
         console.log(favDogs)
     };
+
+
+
+
   return (
       <ThemeProvider
           breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
@@ -47,7 +51,7 @@ function App() {
       >
           <div className="position-relative vh-100 vw-100 app-bg">
               <Menu />
-              <DogDataContext.Provider value={{ dogData, setDogData,handleAddToFavourites,favDogs }}>
+              <DogDataContext.Provider value={{ dogData, setDogData,handleAddToFavourites,favDogs, setFavDogs }}>
                   <Routes>
                       <Route path="/" element={<DogsAppHome />} />
                       <Route path="finder/*" element={<DogsFinder loadData={loadData} />} />

@@ -24,12 +24,14 @@ const DogsFinder = () => {
     // const [showAnswers, setShowAnswers] = useState(false)
     const [findUrl, setFindUrl] = useState(apiUrl);
     const {setDogData} = useContext(DogDataContext)
+
     //navigating the survey
-    const handleFinderNextSite = () => {
+    const handleFinderNextSite = async () => {
         setQuestionNumber(prevState => prevState + 1)
         handleLoadNextQuestion()
-        handleSaveAnswerFromQuestionnaire()
+        await handleSaveAnswerFromQuestionnaire()
         console.log(answersQuestionnaire)
+
     }
     const handleFinderPrevSite = () => {
         if (questionNumber <= 1) {
@@ -56,6 +58,7 @@ const DogsFinder = () => {
         if (currentIndex < questionStringsArray.length - 1) {
             const anotherQuestion = questionStringsArray[currentIndex + 1];
             setCurrentQuestion(anotherQuestion)
+            setAnswerValue(0)
         }
         // else {
             // setShowAnswers(true)
@@ -67,6 +70,7 @@ const DogsFinder = () => {
         if (currentIndex > 0) {
             const anotherQuestion = questionStringsArray[currentIndex - 1];
             setCurrentQuestion(anotherQuestion)
+            setAnswerValue(0)
         }
     }
 
@@ -100,29 +104,32 @@ const DogsFinder = () => {
     }
 
 // creating Obj with answers from Questionnaire
-    const handleSaveAnswerFromQuestionnaire = () => {
+    const handleSaveAnswerFromQuestionnaire =  () => {
         // const answerQuestionnaire = {...answersQuestionnaire,}
-        setAnswersQuestionnaire((prevState) => ({
-            ...prevState,
-            [questionNumber]: {answerValue},
+       setAnswersQuestionnaire((prevState) => ({
+                ...prevState,
+                [questionNumber]: {answerValue},
         }));
-        // setPrevAnswerValue(answerValue);
+
     };
+
     // // actualization of state answersQuestionnaire
     useEffect(() => {
         handleSaveAnswerFromQuestionnaire();
-    }, [questionNumber]);
+    }, [answerValue]);
 
     // creating new URL to API
-    const createUrl = () => {
+    const createUrl =   () => {
         let updatedUrl = apiUrl;
         let prefix = '';
-        Object.entries(answersQuestionnaire).map(([key, value]) => {
+        /*Object.entries(answersQuestionnaire).map(([key, value]) => {
             if (value.answerValue > 0 && typeof questionsKeyArray[key-1] !== "undefined") {
-                updatedUrl += `${prefix}${questionsKeyArray[key-1]}=${value.answerValue}`;
-                prefix = '&';
+                if (!(questionsKeyArray[key-1] === 'energy' && value.answerValue === 1)) {
+                    updatedUrl += `${prefix}${questionsKeyArray[key-1]}=${value.answerValue}`;
+                    prefix = '&';
+                }
             }
-        });
+        });*/
         if (answersPreference.weight.min > 0) {
             updatedUrl+= `${prefix}min_weight=${answersPreference.weight.min}`
             prefix = '&';
@@ -133,28 +140,75 @@ const DogsFinder = () => {
             prefix = '&';
             updatedUrl+= `${prefix}max_height=${answersPreference.height.max}`
         }
-        console.log(updatedUrl);
-        setFindUrl(updatedUrl);
+       setFindUrl(updatedUrl);
     }
 
+    const filterFoundDogs = (data) => {
+        let answersObj = {};
+        Object.entries(answersQuestionnaire).map(([key, value]) => {
+            if (value.answerValue > 0 && typeof questionsKeyArray[key-1] !== "undefined") {
+                if (!(questionsKeyArray[key-1] === 'energy' && value.answerValue === 1)) {
+                    answersObj[questionsKeyArray[key-1]] = value.answerValue;
+                }
+            }
+        });
+
+        const newData = Object.values(data).filter((dog) => {
+            let dogAccepted = true;
+            Object.entries(answersObj).map(([key, value]) => {
+                if (dog[key] > value) {
+                    dogAccepted = false;
+                }
+            });
+
+            return dogAccepted;
+        });
+
+        return newData;
+    }
+
+
     //passing new URL to API
-    const handleSentAnswersFromQuestionnaire = () => {
+    const handleSentAnswersFromQuestionnaire = async() => {
         createUrl()
         console.log(findUrl)
-        fetch(`${findUrl}`, {
-            method: "GET",
-            headers: {
-                'X-Api-Key': apiKey,
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(response => response.json())
-            .then(data => setDogData(data))
-            .catch(err => console.error(err))
+        let apiData = []
+        let findOffset = 0
+        let apiHasData = true
+        while (apiHasData) {
+            await fetch(`${findUrl}&offset=${findOffset}`, {
+                method: "GET",
+                headers: {
+                    'X-Api-Key': apiKey,
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => response.json())
+                .then(data =>  {
+                    if (data.length > 0) {
+                        const newData = filterFoundDogs(data);
+                        newData.forEach(item => {
+                            apiData.push(item);
+                        })
+                        findOffset += 20;
+                    } else {
+                        apiHasData = false;
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    apiHasData = false;
+                })
+        }
+        console.log(apiData);
+        setDogData(apiData);
     }
-useEffect(() => {
-        handleSaveAnswerFromQuestionnaire();
-    },[findUrl])
+    useEffect(() => {
+        if (findUrl !== apiUrl) {
+            handleSentAnswersFromQuestionnaire();
+        }
+    }, [findUrl]);
+
     return (
         <>
             <Container fluid className="finder__container h-75  main shadow-lg d-flex justify-content-center bg-white">

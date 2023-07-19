@@ -12,15 +12,15 @@ export const dogHeightPreferences = {
     large: {
         label: "The bigger the better",
         heightRange: {
-            min_height_male: 23.5,
-            max_height_male: 35,
+            min_height_male: 20,
+            max_height_male: 50,
         },
     },
     medium: {
         label: "I like medium dogs",
         heightRange: {
-            min_height_male: 15.5,
-            max_height_male: 23,
+            min_height_male: 10,
+            max_height_male: 35,
         },
     },
     small: {
@@ -44,14 +44,14 @@ export const dogWeightPreferences = {
         label:  "The skinny type",
         weightRange: {
             min_weight_male: 2,
-            max_weight_male: 60,
+            max_weight_male: 100,
         },
     },
     brawler: {
         label:  "Brawler type",
         weightRange: {
-            min_weight_male: 60.5,
-            max_weight_male: 200,
+            min_weight_male: 50,
+            max_weight_male: 300,
         },
     },
     notMatter: {

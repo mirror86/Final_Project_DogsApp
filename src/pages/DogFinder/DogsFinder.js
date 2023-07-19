@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Container from "react-bootstrap/Container";
 import {Col, Row} from "react-bootstrap";
 import Footer from "../../components/Footer/Footer";
@@ -6,9 +6,10 @@ import QuestionnairePage from "../../components/QuestionnairePage/QuestionnaireP
 import PreferencePage from "../../components/PreferencePage/PreferencePage";
 import {allQuestions, apiKey, apiUrl, dogHeightPreferences, dogWeightPreferences, labelValues} from "../../data";
 import Answers from "../../components/Anwsers/Answers";
+import {DogDataContext} from "../../App";
 
 
-const DogsFinder = ({setDogData}) => {
+const DogsFinder = () => {
     const [questionNumber, setQuestionNumber] = useState(1)
     const [showPreferencePage, setShowPreferencePage] = useState(true)
     const [currentQuestion, setCurrentQuestion] = useState(allQuestions["energy"])
@@ -22,7 +23,7 @@ const DogsFinder = ({setDogData}) => {
     // const [prevAnswerValue, setPrevAnswerValue] = useState(0);
     // const [showAnswers, setShowAnswers] = useState(false)
     const [findUrl, setFindUrl] = useState(apiUrl);
-
+    const {setDogData} = useContext(DogDataContext)
     //navigating the survey
     const handleFinderNextSite = () => {
         setQuestionNumber(prevState => prevState + 1)

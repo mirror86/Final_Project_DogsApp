@@ -21,8 +21,7 @@ const FavDogElement = ( {dog, key}) => {
                 <Col xs={12} sm={12} md={6} lg={6} xl={6} className=""><strong>{dog.name}</strong>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium culpa doloribus eos,
                     ex explicabo hic nam possimus unde voluptatem.</Col>
-                <Col xs={12} sm={12} md={1} lg={2} xl={2} className="text-center">action <i
-                    className="fa-solid fa-trash-can" onClick={iconClick}/></Col>
+                <Col xs={12} sm={12} md={1} lg={2} xl={2} className="text-center">action <i className="fa-solid fa-trash-can" onClick={iconClick}/></Col>
             </Row>
 
         </>

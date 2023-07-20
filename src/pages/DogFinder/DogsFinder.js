@@ -7,6 +7,7 @@ import PreferencePage from "../../components/PreferencePage/PreferencePage";
 import {allQuestions, apiKey, apiUrl, dogHeightPreferences, dogWeightPreferences, labelValues} from "../../data";
 import Answers from "../../components/Anwsers/Answers";
 import {DogDataContext} from "../../App";
+import Results from "../../components/Results/Results";
 
 
 const DogsFinder = () => {
@@ -24,7 +25,7 @@ const DogsFinder = () => {
     const {setDogData} = useContext(DogDataContext)
     const [heightSelected, setHeightSelected] = useState(false);
     const [weightSelected, setWeightSelected] = useState(false)
-
+const [result, setResult] = useState(true)
 
     //navigating the survey
     const handleFinderNextSite = async () => {
@@ -42,6 +43,7 @@ const DogsFinder = () => {
             setQuestionNumber(prevState => prevState - 1)
             handleLoadPrevQuestion()
         }
+        // changing state for alert function
         setWeightSelected(false)
         setHeightSelected(false)
 
@@ -55,31 +57,29 @@ const DogsFinder = () => {
 
     };
 
-
     //loading next question from Obj allQuestions
     const handleLoadNextQuestion = () => {
         if (currentIndex < questionStringsArray.length - 1) {
             const anotherQuestion = questionStringsArray[currentIndex + 1];
             setCurrentQuestion(anotherQuestion)
             setAnswerValue(0)
+            setLabel(labelValues[0]);
         }
         // else {
             // setShowAnswers(true)
         // }
     }
 
-
     //loading previous question from Obj allQuestions
     const handleLoadPrevQuestion = () => {
         if (currentIndex > 0) {
             const anotherQuestion = questionStringsArray[currentIndex - 1];
             setCurrentQuestion(anotherQuestion)
+            setAnswerValue(0)
+            setLabel(labelValues[0]);
         }
 
     }
-
-
-
 
     // creating Obj with answers from Preference
     const handleShowQuestionnairePage = () => {
@@ -88,16 +88,6 @@ const DogsFinder = () => {
         setShowPreferencePage(false)
 
     }
-
-    const handleGoToQuestionnaire = () => {
-
-            if (weightSelected && heightSelected) {
-                handleShowQuestionnairePage();
-            } else {
-                alert("You must tick the answer in both sections");
-            }
-    }
-
 
     const handleHeightPreferences = ({key}) => {
         const selectedHeightPreference = dogHeightPreferences[key];
@@ -131,6 +121,16 @@ const handleHeightChange =(key) => {
     const handleWeightChange =(key) => {
         handleWeightPreferences(key)
 
+    }
+
+// alert if the user does not fill out the form
+    const handleGoToQuestionnaire = () => {
+
+        if (weightSelected && heightSelected) {
+            handleShowQuestionnairePage();
+        } else {
+            alert("You must tick the answer in both sections");
+        }
     }
 
 // creating Obj with answers from Questionnaire
@@ -186,8 +186,14 @@ const handleHeightChange =(key) => {
         const newData = Object.values(data).filter((dog) => {
             let dogAccepted = true;
             Object.entries(answersObj).map(([key, value]) => {
-                if (dog[key] > value) {
-                    dogAccepted = false;
+                if (key === 'trainability' || key === 'good_with_children' || key === 'good_with_other_dogs') {
+                    if (dog[key] < value) {
+                        dogAccepted = false;
+                    }
+                } else {
+                    if (dog[key] > value) {
+                        dogAccepted = false;
+                    }
                 }
             });
 
@@ -232,14 +238,18 @@ const handleHeightChange =(key) => {
         }
         console.log(apiData);
         setDogData(apiData);
+
     }
     useEffect(() => {
         if (findUrl !== apiUrl) {
             handleSentAnswersFromQuestionnaire();
         }
     }, [findUrl]);
+const handleShowResults = () => {
+    handleSentAnswersFromQuestionnaire()
+setResult(false)
+}
 
-    // tu trzeba zmienić, bo po powrocie nie działą alert
     return (
         <>
             <Container fluid className="finder__container h-75  main shadow-lg d-flex justify-content-center bg-white">
@@ -255,9 +265,9 @@ const handleHeightChange =(key) => {
                                                label={label} answerValue={answerValue} onBack={handleFinderPrevSite}
                                                onNext={handleFinderNextSite} rangeValue={handleRangeChange}
                                                onSaveAnswerValue={handleSaveAnswerFromQuestionnaire}/>
-                        ) : (
-                            <Answers sentData={handleSentAnswersFromQuestionnaire}/>
-                        )}
+                        ) : result ?(
+                            <Answers sentData={handleShowResults}/>
+                        ) : ( <Results/>)}
                     </Col>
                 </Row>
             </Container>

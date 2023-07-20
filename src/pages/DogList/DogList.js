@@ -52,7 +52,7 @@ const handleNextPageCounter = () => {
                         {!isLoading && dogData && (
                             <div className="dogsList__navigation d-flex justify-content-center">
                                 <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3 mb-4" onClick={handleClickPrevButton}>Previous</Button>
-                                <p>Page {pageCounter} form 15 </p>
+                                <p className="mt-4">Page {pageCounter} form 15 </p>
                                 <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3 mb-4" onClick={handleClickNextButton}>Next</Button>
                             </div>
                         )}

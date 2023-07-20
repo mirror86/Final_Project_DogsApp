@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Card, Col, Collapse} from "react-bootstrap";
+import {Badge, Button, Card, Col, Collapse, ListGroup} from "react-bootstrap";
 
 
 const BreedCard = ({dog, handleAddToFavourites, favDogs}) => {
@@ -33,11 +33,64 @@ const BreedCard = ({dog, handleAddToFavourites, favDogs}) => {
                     More
                 </Button>
                 <Collapse in={open}>
-                    <div id="example-collapse-text">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                        terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-                        labore wes anderson cred nesciunt sapiente ea proident.
-                    </div>
+                    <ListGroup as="ol" numbered>
+                        <ListGroup.Item
+                            as="li"
+                            className="d-flex justify-content-between align-items-start">
+                            <div className="ms-2 me-auto">
+                                <div className="fw-bold">Energy</div>
+                            </div>
+                            <Badge bg="info" pill>{dog.energy}</Badge>
+                        </ListGroup.Item>
+                        <ListGroup.Item
+                            as="li"
+                            className="d-flex justify-content-between align-items-start">
+                            <div className="ms-2 me-auto">
+                                <div className="fw-bold">Loudness</div>
+                            </div>
+                            <Badge bg="info" pill>{dog.barking}</Badge>
+                        </ListGroup.Item>
+                        <ListGroup.Item
+                            as="li"
+                            className="d-flex justify-content-between align-items-start">
+                            <div className="ms-2 me-auto">
+                                <div className="fw-bold">Shedding</div>
+                            </div>
+                            <Badge bg="info" pill>{dog.shedding}</Badge>
+                        </ListGroup.Item>
+                        <ListGroup.Item
+                            as="li"
+                            className="d-flex justify-content-between align-items-start">
+                            <div className="ms-2 me-auto">
+                                <div className="fw-bold">trainability</div>
+                            </div>
+                            <Badge bg="info" pill>{dog.trainability}</Badge>
+                        </ListGroup.Item>
+                        <ListGroup.Item
+                            as="li"
+                            className="d-flex justify-content-between align-items-start">
+                            <div className="ms-2 me-auto">
+                                <div className="fw-bold">Protectiveness</div>
+                            </div>
+                            <Badge bg="info" pill>{dog.protectiveness}</Badge>
+                        </ListGroup.Item>
+                        <ListGroup.Item
+                            as="li"
+                            className="d-flex justify-content-between align-items-start">
+                            <div className="ms-2 me-auto">
+                                <div className="fw-bold"> God with children</div>
+                            </div>
+                            <Badge bg="info" pill>{dog.good_with_children}</Badge>
+                        </ListGroup.Item>
+                        <ListGroup.Item
+                            as="li"
+                            className="d-flex justify-content-between align-items-start">
+                            <div className="ms-2 me-auto">
+                                <div className="fw-bold"> God with other dogs</div>
+                            </div>
+                            <Badge bg="info" pill>{dog.good_with_other_dogs}</Badge>
+                        </ListGroup.Item>
+                    </ListGroup>
                 </Collapse>
             </Card>
         </Col>

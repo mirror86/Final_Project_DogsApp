@@ -4,8 +4,8 @@ import {Button, Row, Spinner} from "react-bootstrap";
 import BreedCard from "../../components/BreedCard/BreedCard";
 
 import {DogDataContext} from "../../App"
-const DogList = ({ loadData, isLoading}) => {
-    const { dogData, handleAddToFavourites, favDogs} = useContext(DogDataContext);
+const DogList = () => {
+    const { dogData, handleAddToFavourites, favDogs, loadData, isLoading} = useContext(DogDataContext);
     const [siteNumber, setSiteNumber] = useState(1);
 
 

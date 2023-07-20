@@ -43,7 +43,6 @@ function App() {
 
 
 
-
   return (
       <ThemeProvider
           breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
@@ -51,7 +50,7 @@ function App() {
       >
           <div className="position-relative vh-100 vw-100 app-bg">
               <Menu />
-              <DogDataContext.Provider value={{ dogData, setDogData,handleAddToFavourites,favDogs, setFavDogs }}>
+              <DogDataContext.Provider value={{ dogData, setDogData,handleAddToFavourites,favDogs, setFavDogs, loadData, isLoading }}>
                   <Routes>
                       <Route path="/" element={<DogsAppHome />} />
                       <Route path="finder/*" element={<DogsFinder loadData={loadData} />} />

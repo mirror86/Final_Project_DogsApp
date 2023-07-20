@@ -5,7 +5,7 @@ import FavDogElement from "../../components/FavDogElement/FavDogElement";
 import {DogDataContext} from "../../App.js"
 import BreedCard from "../../components/BreedCard/BreedCard";
 const FavDogs = () => {
-    const {  handleAddToFavourites, favDogs, setFavDogs} = useContext(DogDataContext);
+    const {  handleAddToFavourites, favDogs} = useContext(DogDataContext);
 
     return (
         <>

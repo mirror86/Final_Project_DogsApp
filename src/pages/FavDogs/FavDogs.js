@@ -11,7 +11,7 @@ const FavDogs = () => {
         <>
             <Container fluid className="pages__container main h-100 shadow-lg  bg-white" style={{overflowY: "scroll"}}>
                 <Container fluid className="h-100 bg-white">
-                    <Row className=" ">
+                    <Row>
                         <Col>
                             <Container fluid="lg" className="mt-4">
                                 {favDogs.map((dog, index) => (

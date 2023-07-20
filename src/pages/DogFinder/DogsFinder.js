@@ -251,25 +251,29 @@ setResult(false)
 }
     return (
         <>
-            <Container fluid className="finder__container main shadow-lg d-flex justify-content-center bg-white" style={{ overflowY: "scroll" }}>
-                {/*<Row className="text-center justify-content-center mt-auto mb-auto mx-auto p-2 h-50 w-50">*/}
-                    <Col xs={{span: 12, offset: 2}} className="d-flex flex-column justify-content-center">
+                <Container className="finder__wrapper justify-content-center">
+                <Row>
+                    <Col>
                         {showPreferencePage ? (
+                            <Col>
                             <PreferencePage
                                 onOtherQuestions={handleGoToQuestionnaire}
                                 weightPreferencesMustHave={handleWeightChange}
                                 heightPreferencesMustHave={handleHeightChange}/>
+                            </Col>
                         ) : questionNumber <= 7 ? (
+                            <Col>
                             <QuestionnairePage questionNumber={questionNumber} currentQuestion={currentQuestion}
                                                label={label} answerValue={answerValue} onBack={handleFinderPrevSite}
                                                onNext={handleFinderNextSite} rangeValue={handleRangeChange}
                                                onSaveAnswerValue={handleSaveAnswerFromQuestionnaire}/>
+                            </Col>
                         ) : result ?(
                             <Answers sentData={handleShowResults}/>
                         ) : ( <Results/>)}
                     </Col>
-                {/*</Row>*/}
-            </Container>
+                </Row>
+                </Container>
             <Footer/>
         </>
     )

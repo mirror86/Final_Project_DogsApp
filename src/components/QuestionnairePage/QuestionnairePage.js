@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import FormRange from "../FormRange/FormRange";
-import {Button} from "react-bootstrap";
+import {Button, Col, Row} from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 
 
 const QuestionnairePage = ({questionNumber, onBack, onNext, currentQuestion, rangeValue, answerValue, label, onSaveAnswerValue}) => {
@@ -19,7 +20,6 @@ const QuestionnairePage = ({questionNumber, onBack, onNext, currentQuestion, ran
                     <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3" onClick={onNext} onSubmit={onSaveAnswerValue}>Next</Button>
                 </div>
             </section>
-
         </>
     );
 };

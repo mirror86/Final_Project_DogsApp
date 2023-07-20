@@ -249,12 +249,11 @@ const handleShowResults = () => {
     handleSentAnswersFromQuestionnaire()
 setResult(false)
 }
-
     return (
         <>
-            <Container fluid className="finder__container h-75  main shadow-lg d-flex justify-content-center bg-white">
-                <Row className="text-center justify-content-center mt-auto mb-auto mx-auto p-2 h-50 w-50">
-                    <Col xs={{span: 6, offset: 3}} className="d-flex flex-column justify-content-center">
+            <Container fluid className="finder__container h-75  main shadow-lg d-flex justify-content-center bg-white" style={{ overflowY: "scroll" }}>
+                {/*<Row className="text-center justify-content-center mt-auto mb-auto mx-auto p-2 h-50 w-50">*/}
+                    <Col xs={{span: 12, offset: 2}} className="d-flex flex-column justify-content-center">
                         {showPreferencePage ? (
                             <PreferencePage
                                 onOtherQuestions={handleGoToQuestionnaire}
@@ -269,7 +268,7 @@ setResult(false)
                             <Answers sentData={handleShowResults}/>
                         ) : ( <Results/>)}
                     </Col>
-                </Row>
+                {/*</Row>*/}
             </Container>
             <Footer/>
         </>

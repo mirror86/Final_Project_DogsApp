@@ -42,6 +42,8 @@ const DogsFinder = () => {
             setQuestionNumber(prevState => prevState - 1)
             handleLoadPrevQuestion()
         }
+        setWeightSelected(false)
+        setHeightSelected(false)
 
     }
 
@@ -73,8 +75,7 @@ const DogsFinder = () => {
             const anotherQuestion = questionStringsArray[currentIndex - 1];
             setCurrentQuestion(anotherQuestion)
         }
-        setWeightSelected(false)
-        setHeightSelected(false)
+
     }
 
 
@@ -124,12 +125,12 @@ const DogsFinder = () => {
     }
 const handleHeightChange =(key) => {
         handleHeightPreferences(key)
-    setHeightSelected(true)
+
 }
 
     const handleWeightChange =(key) => {
         handleWeightPreferences(key)
-        setWeightSelected(true)
+
     }
 
 // creating Obj with answers from Questionnaire

@@ -18,7 +18,7 @@ const DogsAppHome = () => {
                                 your dream dog</Button>
                         </Col>
                         <Col xs={12} sm={6} md={6} className="masthead__item__button">
-                            <Button variant="outline-primary" size="lg" href="list" className="ms-3 me-3 mt-2 mb-4">Search
+                            <Button variant="outline-info" size="lg" href="list" className="ms-3 me-3 mt-2 mb-4">Search
                                 the database</Button>
                         </Col>
                     </Row>

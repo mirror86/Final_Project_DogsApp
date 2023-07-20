@@ -53,8 +53,8 @@ function App() {
               <DogDataContext.Provider value={{ dogData, setDogData,handleAddToFavourites,favDogs, setFavDogs, loadData, isLoading }}>
                   <Routes>
                       <Route path="/" element={<DogsAppHome />} />
-                      <Route path="finder/*" element={<DogsFinder loadData={loadData} />} />
-                      <Route path="list" element={<DogList loadData={loadData} isLoading={isLoading} />} />
+                      <Route path="finder/*" element={<DogsFinder/>} />
+                      <Route path="list" element={<DogList/>} />
                       <Route path="favourites" element={<FavDogs />} />
                   </Routes>
               </DogDataContext.Provider>

@@ -3,7 +3,7 @@ import React from 'react';
 const FormRange = ({rangeValue, value, label}) => {
 
     return (
-        <div>
+        <div className=" d-flex justify-content-center flex-column ms-5 me-5 p-3 p-md-4">
             <input
                 type="range"
                 min={0}
@@ -12,7 +12,7 @@ const FormRange = ({rangeValue, value, label}) => {
                 value={value}
                 onChange={rangeValue}
             />
-            <p>{label}</p>
+            <p className="text-center">{label}</p>
         </div>
     );
 };

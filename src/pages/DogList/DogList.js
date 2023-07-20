@@ -7,18 +7,28 @@ import {DogDataContext} from "../../App"
 const DogList = () => {
     const { dogData, handleAddToFavourites, favDogs, loadData, isLoading} = useContext(DogDataContext);
     const [siteNumber, setSiteNumber] = useState(1);
+    const [pageCounter, setPageCounter] = useState(1)
 
+const handleNextPageCounter = () => {
+        setPageCounter(prevState => prevState + 1)
+}
+
+    const handlePrevPageCounter = () => {
+        setPageCounter(prevState => prevState - 1)
+    }
 
     const handleClickNextButton = () => {
         setSiteNumber(prevState => prevState + 1);
         const offset = siteNumber * 20;
         loadData(offset);
+       handleNextPageCounter()
     };
 
     const handleClickPrevButton = () => {
         setSiteNumber(prevState => prevState - 1);
         const offset = siteNumber * 20;
         loadData(offset);
+        handlePrevPageCounter()
     };
 
     useEffect(() => {
@@ -40,9 +50,10 @@ const DogList = () => {
                                 <BreedCard key={index} dog={dog} handleAddToFavourites={handleAddToFavourites} favDogs={favDogs}/>
                             ))}
                         {!isLoading && dogData && (
-                            <div>
-                                <Button onClick={handleClickPrevButton}>Previous</Button>
-                                <Button onClick={handleClickNextButton}>Next</Button>
+                            <div className="dogsList__navigation d-flex justify-content-center">
+                                <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3 mb-4" onClick={handleClickPrevButton}>Previous</Button>
+                                <p>Page {pageCounter} form 15 </p>
+                                <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3 mb-4" onClick={handleClickNextButton}>Next</Button>
                             </div>
                         )}
                     </Row>

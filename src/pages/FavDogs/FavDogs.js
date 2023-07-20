@@ -9,7 +9,7 @@ const FavDogs = () => {
 
     return (
         <>
-            <Container fluid className="pages__container main h-100 shadow-lg  bg-white" style={{overflowY: "scroll"}}>
+            <Container fluid className="pages__container main h-100  bg-white" style={{overflowY: "scroll"}}>
                 <Container fluid className="h-100 bg-white">
                     <Row>
                         <Col>

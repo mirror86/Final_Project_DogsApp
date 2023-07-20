@@ -22,7 +22,7 @@ const DogsFinder = () => {
     const [answersQuestionnaire, setAnswersQuestionnaire] = useState({})
     const [answersPreference, setAnswersPreference] = useState({})
     const [findUrl, setFindUrl] = useState(apiUrl);
-    const {setDogData} = useContext(DogDataContext)
+    const {setDogData,} = useContext(DogDataContext)
     const [heightSelected, setHeightSelected] = useState(false);
     const [weightSelected, setWeightSelected] = useState(false)
 const [result, setResult] = useState(true)

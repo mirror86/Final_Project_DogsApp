@@ -42,8 +42,6 @@ function App() {
         console.log(favDogs)
     };
 
-
-
   return (
       <ThemeProvider
           breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
@@ -53,8 +51,8 @@ function App() {
               <DogDataContext.Provider value={{ dogData, setDogData,handleAddToFavourites,favDogs, setFavDogs, loadData, isLoading }}>
                   <Routes>
                       <Route path="/" element={<DogsAppHome />} />
-                      <Route path="finder/*" element={<DogsFinder/>} />
-                      <Route path="list" element={<DogList/>} />
+                      <Route path="finder" element={<DogsFinder/>} />
+                      <Route path="list/*" element={<DogList/>} />
                       <Route path="favourites" element={<FavDogs />} />
                   </Routes>
               </DogDataContext.Provider>

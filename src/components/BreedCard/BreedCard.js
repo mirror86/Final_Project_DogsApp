@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Card, Col} from "react-bootstrap";
+import {Button, Card, Col, Collapse} from "react-bootstrap";
 
 
 const BreedCard = ({dog, handleAddToFavourites, favDogs}) => {
     const [itsFavourite, setItsFavourite] = useState(false);
-
+    const [open, setOpen] = useState(false);
     useEffect(() => {
         const isFavourite = favDogs.some((favDog) => favDog.name === dog.name);
         setItsFavourite(isFavourite);
@@ -23,7 +23,22 @@ const BreedCard = ({dog, handleAddToFavourites, favDogs}) => {
                     <i className={`fa-regular fa-heart ${itsFavourite ? "fa-solid" : "fa-regular"}`} onClick={onHandleIconClick}
                       ></i>
                 </Card.Body>
-                <Button variant="outline-info" >More</Button>
+                {/*<Button variant="outline-info" >More</Button>*/}
+                <Button
+                    variant="outline-info"
+                    onClick={() => setOpen(!open)}
+                    aria-controls="example-collapse-text"
+                    aria-expanded={open}
+                >
+                    More
+                </Button>
+                <Collapse in={open}>
+                    <div id="example-collapse-text">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                        terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+                        labore wes anderson cred nesciunt sapiente ea proident.
+                    </div>
+                </Collapse>
             </Card>
         </Col>
     );

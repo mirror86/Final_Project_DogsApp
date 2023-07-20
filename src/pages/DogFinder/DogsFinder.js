@@ -25,7 +25,8 @@ const DogsFinder = () => {
     const {setDogData,} = useContext(DogDataContext)
     const [heightSelected, setHeightSelected] = useState(false);
     const [weightSelected, setWeightSelected] = useState(false)
-const [result, setResult] = useState(true)
+    const [result, setResult] = useState(true)
+    const {setIsLoading} = useContext(DogDataContext);
 
     //navigating the survey
     const handleFinderNextSite = async () => {
@@ -206,8 +207,8 @@ const handleHeightChange =(key) => {
 
     //passing new URL to API
     const handleSentAnswersFromQuestionnaire = async() => {
+        setIsLoading(true)
         createUrl()
-        console.log(findUrl)
         let apiData = []
         let findOffset = 0
         let apiHasData = true
@@ -229,15 +230,16 @@ const handleHeightChange =(key) => {
                         findOffset += 20;
                     } else {
                         apiHasData = false;
+                        setDogData(apiData);
+                        setIsLoading(false);
                     }
                 })
                 .catch(err => {
                     console.error(err);
                     apiHasData = false;
+                    //setIsLoading(false);
                 })
         }
-        console.log(apiData);
-        setDogData(apiData);
 
     }
     useEffect(() => {

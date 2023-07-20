@@ -1,5 +1,9 @@
 @import "fonts";
 
+$info: rgba(28, 39, 98, 0.69);
+@import '~bootstrap/scss/bootstrap';
+
+
 .App {
   text-align: center;
 }
@@ -58,10 +62,6 @@
   background-size: cover;
 }
 
-.masthead__box {
-  margin-top: 60px;
-}
-
 #root {
   min-height: 100vh;
 }
@@ -116,4 +116,10 @@
 #example-collapse-text {
   padding: 20px;
   text-align: center;
+}
+
+.favourites-bg {
+  background-image: url("./../public/result-bg.jpg");
+  background-size: cover;
+  background-position: center center;
 }

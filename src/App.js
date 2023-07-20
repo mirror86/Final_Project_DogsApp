@@ -1,5 +1,5 @@
 import './App.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import DogList from "./pages/DogList/DogList";
 import DogsFinder from "./pages/DogFinder/DogsFinder";
 import DogsAppHome from "./pages/DoggsAppHome/DogsAppHome";
@@ -35,9 +35,11 @@ function App() {
         if (itsAlreadyFav) {
             const updatedFavorites = favDogs.filter((favoriteId) => favoriteId !== dog);
             setFavDogs(updatedFavorites);
+            localStorage.setItem('finddogapp.favourites', JSON.stringify(updatedFavorites));
         } else {
             const newFavDogs = [...favDogs, dog];
             setFavDogs(newFavDogs);
+            localStorage.setItem('finddogapp.favourites', JSON.stringify(newFavDogs));
         }
         console.log(favDogs)
     };
@@ -48,7 +50,7 @@ function App() {
           minBreakpoint="xxs"
       >
               <Menu />
-              <DogDataContext.Provider value={{ dogData, setDogData,handleAddToFavourites,favDogs, setFavDogs, loadData, isLoading }}>
+              <DogDataContext.Provider value={{ dogData, setDogData,handleAddToFavourites,favDogs, setFavDogs, loadData, isLoading, setIsLoading }}>
                   <Routes>
                       <Route path="/" element={<DogsAppHome />} />
                       <Route path="finder" element={<DogsFinder/>} />

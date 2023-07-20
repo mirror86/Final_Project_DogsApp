@@ -10,6 +10,7 @@ import {Routes, Route} from "react-router-dom";
 import QuestionnairePage from "./components/QuestionnairePage/QuestionnairePage";
 import React, {createContext, useState} from "react";
 import {apiKey, apiUrl} from "./data";
+import Container from "react-bootstrap/Container";
 export const DogDataContext = createContext();
 function App() {
     const [dogData, setDogData] = useState([]);
@@ -48,7 +49,6 @@ function App() {
           breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
           minBreakpoint="xxs"
       >
-          <div className="position-relative vh-100 vw-100 app-bg">
               <Menu />
               <DogDataContext.Provider value={{ dogData, setDogData,handleAddToFavourites,favDogs, setFavDogs, loadData, isLoading }}>
                   <Routes>
@@ -58,7 +58,6 @@ function App() {
                       <Route path="favourites" element={<FavDogs />} />
                   </Routes>
               </DogDataContext.Provider>
-          </div>
       </ThemeProvider>
   );
 }

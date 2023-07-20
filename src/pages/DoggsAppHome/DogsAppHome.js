@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 
 const DogsAppHome = () => {
     return (
+        <div className="position-absolute top-0 vh-100 vw-100 app-bg" style={{overflow: "hidden"}}>
         <Container fluid className="masthead  h-75 vw-100 d-flex flex-column justify-content-end ">
             <Container className="masthead__box  position-relative text-center mb-4 bg-white bg-opacity-25">
                 <Row className="masthead__item d-flex mx-auto justify-content-evenly">
@@ -24,6 +25,7 @@ const DogsAppHome = () => {
                 </Row>
             </Container>
         </Container>
+        </div>
     );
 };
 export default DogsAppHome;

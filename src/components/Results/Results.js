@@ -14,12 +14,12 @@ const Results = () => {
                 <Container fluid className="pages__container main h-auto shadow-lg bg-white" style={{ overflowY: "scroll" }}>
                     <Container fluid className="h-auto bg-white">
                         <Row className="d-flex flex-wrap">
-                            {!isLoading && (
+                            {isLoading && (
                                 <Spinner animation="border" role="status" className="position-absolute top-50 start-50">
                                     <span className="visually-hidden-focusable"></span>
                                 </Spinner>
                             )}
-                            {isLoading && dogData &&
+                            {!isLoading && dogData &&
                                 dogData.map((dog, index) => (
                                     <ResultElement dog={dog} key={index} onIconClick={handleAddToFavourites}/>
                                 ))}

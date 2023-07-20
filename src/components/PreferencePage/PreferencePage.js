@@ -10,7 +10,7 @@ const PreferencePage = ({onOtherQuestions, weightPreferencesMustHave, heightPref
             <header className="text-center">
                 <h1>What does your dream dog look like?</h1>
             </header>
-            <section className="w-100 mx-auto ms-2 me-2">
+            <section className=" mx-auto ms-2 me-2">
                 <p>CHOOSE ONE OF THE FOUR ANSWERS</p>
                 <Form className="w-auto">
                     {Object.entries(dogHeightPreferences).map(([key, preference]) => (

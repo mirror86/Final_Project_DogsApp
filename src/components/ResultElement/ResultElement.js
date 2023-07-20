@@ -21,10 +21,10 @@ const ResultElement = ({dog, index, onIconClick}) => {
     return (
         <>
 
-             <Row key={index} className=" shadow justify-content-evenly gap-4 m-sm-2 align-items-center pt-2 pb-2">
+             <Row key={index} className=" shadow justify-content-evenly gap-4 mt-2 mb-2 mt-sm-4 mt-sm-4 mt-lg-4 mb-lg-4 ms-sm-1 me-sm-1 ms-lg-2 me-lg-2 align-items-center pt-2 pb-2">
                  <Col xs={12} sm={12} md={4} lg={3} xl={3} className="text-center">
                      <img src={dog.image_link} alt="" className=" w-100 rounded cover"/>
-                     <h3>{dog.name}</h3>
+                     <h3 className="pt-3">{dog.name}</h3>
                  </Col>
                  <Col xs={12} sm={12} md={6} lg={4} xl={6}>
                      <ul>

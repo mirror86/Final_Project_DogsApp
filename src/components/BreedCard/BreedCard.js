@@ -16,7 +16,7 @@ const BreedCard = ({dog, handleAddToFavourites, favDogs}) => {
     }
     return (
         <Col key={dog.name} xl={3} md={4} sm={6}>
-            <Card className="border-light shadow-lg mt-5 mb-5 ms-2 me-2 ">
+            <Card className="border-light shadow-lg mt-2 mb-2 mt-sm-4 mt-sm-4 mt-lg-4 mb-lg-4 ms-sm-1 me-sm-1 ms-lg-2 me-lg-2 ">
                 <Card.Img variant="top" src={dog.image_link} dog={dog}/>
                 <Card.Body className="d-flex justify-content-between">
                     <Card.Title dog={dog}>{dog.name}</Card.Title>

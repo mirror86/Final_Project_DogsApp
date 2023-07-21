@@ -24,7 +24,7 @@ const Results = ({answerValue, preferenceValue}) => {
                                 dogData.map((dog, index) => (
                                     <ResultElement dog={dog} key={index} answerValue={answerValue} preferenceValue={preferenceValue} onIconClick={handleAddToFavourites}/>
                                 ))}
-
+                            {!isLoading && !dogData.length && (<div>no data</div>)}
                         </Row>
                     </Container>
                 </Container>

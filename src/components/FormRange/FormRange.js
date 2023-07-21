@@ -10,6 +10,7 @@ const FormRange = ({rangeValue, value, label}) => {
                 step={1}
                 value={value}
                 onChange={rangeValue}
+                className="form-range"
             />
             <p className="text-center">{label}</p>
         </div>

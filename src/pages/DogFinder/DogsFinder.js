@@ -200,8 +200,9 @@ const [answersObject, setAnswersObject] = useState({})
         createUrl();
         let apiData = [];
         let findOffset = 0;
-        let apiHasData = true;
 
+        // console.log('findUrl: ' + findUrl);
+        // console.log('apiUrl: ' + apiUrl);
         const fetchData = async (offset) => {
             try {
                 const response = await fetch(`${findUrl}&offset=${offset}`, {
@@ -223,12 +224,14 @@ const [answersObject, setAnswersObject] = useState({})
                 }
             } catch (err) {
                 console.error(err);
-                apiHasData = false;
+                setDogData([]);
+                setIsLoading(false);
             }
         };
 
         await fetchData(findOffset);
     };
+
     //passing new URL to API
     // const handleSentAnswersFromQuestionnaire = async() => {
     //     setIsLoading(true)

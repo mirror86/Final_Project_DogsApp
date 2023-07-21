@@ -4,7 +4,6 @@ import Container from "react-bootstrap/Container";
 import {Row, Spinner} from "react-bootstrap";
 import ResultElement from "../ResultElement/ResultElement";
 
-
 const Results = ({answerValue, preferenceValue}) => {
 
     const {dogData, handleAddToFavourites, isLoading} = useContext(DogDataContext);
@@ -22,7 +21,9 @@ const Results = ({answerValue, preferenceValue}) => {
                             )}
                             {!isLoading && dogData &&
                                 dogData.map((dog, index) => (
-                                    <ResultElement dog={dog} key={index} answerValue={answerValue} preferenceValue={preferenceValue} onIconClick={handleAddToFavourites}/>
+                                    <ResultElement dog={dog} key={index} answerValue={answerValue}
+                                                   preferenceValue={preferenceValue}
+                                                   onIconClick={handleAddToFavourites}/>
                                 ))}
                             {!isLoading && !dogData.length && (<div>no data</div>)}
                         </Row>

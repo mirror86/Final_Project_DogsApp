@@ -72,7 +72,6 @@ const FavDogElement = ( {dog, key}) => {
 
         </>
     );
-
 };
 
 export default FavDogElement;

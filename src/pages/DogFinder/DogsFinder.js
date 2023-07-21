@@ -232,43 +232,6 @@ const [answersObject, setAnswersObject] = useState({})
         await fetchData(findOffset);
     };
 
-    //passing new URL to API
-    // const handleSentAnswersFromQuestionnaire = async() => {
-    //     setIsLoading(true)
-    //     createUrl()
-    //     let apiData = []
-    //     let findOffset = 0
-    //     let apiHasData = true
-    //     while (apiHasData) {
-    //         await fetch(`${findUrl}&offset=${findOffset}`, {
-    //             method: "GET",
-    //             headers: {
-    //                 'X-Api-Key': apiKey,
-    //                 'Content-Type': 'application/json'
-    //             }
-    //         })
-    //             .then(response => response.json())
-    //             .then(data =>  {
-    //                 if (data.length > 0) {
-    //                     const newData = filterFoundDogs(data);
-    //                     newData.forEach(item => {
-    //                         apiData.push(item);
-    //                     })
-    //                     findOffset += 20;
-    //                 } else {
-    //                     apiHasData = false;
-    //                     setDogData(apiData);
-    //                     setIsLoading(false);
-    //                 }
-    //             })
-    //             .catch(err => {
-    //                 console.error(err);
-    //                 apiHasData = false;
-    //                 //setIsLoading(false);
-    //             })
-    //     }
-    //
-    // }
 
     // blocking function execution without apiUrl loaded
     useEffect(() => {

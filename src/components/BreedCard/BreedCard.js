@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {Badge, Button, Card, Col, Collapse, ListGroup} from "react-bootstrap";
 import {traits} from "../../data";
 
-
 const BreedCard = ({dog, handleAddToFavourites, favDogs}) => {
     const [itsFavourite, setItsFavourite] = useState(false);
     const [open, setOpen] = useState(false);

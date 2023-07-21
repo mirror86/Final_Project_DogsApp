@@ -1,4 +1,4 @@
-import './App.scss';
+import './scss/App.scss';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import DogList from "./pages/DogList/DogList";
 import DogsFinder from "./pages/DogFinder/DogsFinder";

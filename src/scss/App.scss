@@ -1,14 +1,19 @@
-$form-range-track-bg: rgba(57, 206, 189, 0.19);
-$form-range-track-height: .7rem;
-$form-range-thumb-width: 1.5rem;
-$form-range-thumb-active-bg:rgba(57, 206, 189, 100);
-$form-range-thumb-bg:rgba(42, 158, 158,100);
-$form-check-input-checked-color: rgba(204, 202, 202, 0);
-$form-check-input-checked-bg-color: rgb(42, 158, 158);
-$form-check-input-bg: rgba(219, 252, 255, 0.69);
-$info: rgb(42, 158, 158);
+@import "variables";
+@import 'bootstrap';
 
-@import '~bootstrap/scss/bootstrap';
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
 
 .App {
   text-align: center;
@@ -63,7 +68,7 @@ $info: rgb(42, 158, 158);
 }
 
 .app-bg {
-  background-image: url("./../public/pointer-welcome.jpg");
+  background-image: url("../../public/pointer-welcome.jpg");
   background-position: center center;
   background-size: cover;
 }
@@ -73,7 +78,7 @@ $info: rgb(42, 158, 158);
 }
 
 .footer {
-  background-image: url("./../public/dog-bone-grren-bg.jpg");
+  background-image: url("../images/dog-bone-grren-bg.jpg");
   background-size: cover;
   background-position: center center;
   position: relative;
@@ -97,7 +102,7 @@ $info: rgb(42, 158, 158);
 .finder__wrapper {
   height: 70vh;
   overflow-x: hidden;
-  overflow-y: scroll ;
+  overflow-y: auto ;
 }
 
 
@@ -109,7 +114,7 @@ $info: rgb(42, 158, 158);
   padding-top: 15vh;
 }
 .result {
-  background-image: url("./../public/result-bg.jpg");
+  background-image: url("../images/result-bg.jpg");
   background-size: cover;
   background-position: center center;
 }
@@ -124,13 +129,13 @@ $info: rgb(42, 158, 158);
 }
 
 .favourites-bg {
-  background-image: url("./../public/result-bg.jpg");
+  background-image: url("../images/result-bg.jpg");
   background-size: cover;
   background-position: center center;
 }
 
 .fav-empty {
-  background-image: url("../public/basset.jpg");
+  background-image: url("../images/basset.jpg");
   background-size: cover;
   background-position: center center;
   height: 70vh;

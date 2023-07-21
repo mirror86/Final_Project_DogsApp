@@ -27,7 +27,7 @@ const DogsFinder = () => {
     const [weightSelected, setWeightSelected] = useState(false)
     const [result, setResult] = useState(true)
     const {setIsLoading} = useContext(DogDataContext);
-
+const [answersObject, setAnswersObject] = useState({})
     //navigating the survey
     const handleFinderNextSite = async () => {
         setQuestionNumber(prevState => prevState + 1)
@@ -173,6 +173,7 @@ const DogsFinder = () => {
             }
             return answersObj
         });
+        setAnswersObject(answersObj)
 
 //filter conditions
         const newData = Object.values(data).filter((dog) => {
@@ -193,6 +194,7 @@ const DogsFinder = () => {
         return newData;
     }
 
+    // passing URL to API
     const handleSentAnswersFromQuestionnaire = async () => {
         setIsLoading(true);
         createUrl();
@@ -214,7 +216,7 @@ const DogsFinder = () => {
                 if (data.length > 0) {
                     const newData = filterFoundDogs(data);
                     apiData.push(...newData);
-                    await fetchData(offset + 20); // Rekurencyjnie pobierz kolejne dane
+                    await fetchData(offset + 20);
                 } else {
                     setDogData(apiData);
                     setIsLoading(false);
@@ -299,7 +301,7 @@ const DogsFinder = () => {
                             </Col>
                         ) : result ? (
                             <Answers sentData={handleShowResults}/>
-                        ) : (<Results/>)}
+                        ) : (<Results answerValue={answersObject}/>)}
                     </Col>
                 </Row>
             </Container>

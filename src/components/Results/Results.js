@@ -5,7 +5,7 @@ import {Row, Spinner} from "react-bootstrap";
 import ResultElement from "../ResultElement/ResultElement";
 
 
-const Results = () => {
+const Results = ({answerValue, questionnaire,questionNumber}) => {
 
     const {dogData, handleAddToFavourites, isLoading} = useContext(DogDataContext);
     return (
@@ -22,7 +22,7 @@ const Results = () => {
                             )}
                             {!isLoading && dogData &&
                                 dogData.map((dog, index) => (
-                                    <ResultElement dog={dog} key={index} onIconClick={handleAddToFavourites}/>
+                                    <ResultElement dog={dog} key={index} answerValue={answerValue}  onIconClick={handleAddToFavourites}/>
                                 ))}
 
                         </Row>

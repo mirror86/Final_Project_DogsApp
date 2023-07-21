@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {Col, Row} from "react-bootstrap";
 import {DogDataContext} from "../../App";
 
-const ResultElement = ({dog, index, onIconClick}) => {
+const ResultElement = ({dog, index, onIconClick, answerValue}) => {
     const [itsFavourite, setItsFavourite] = useState(false);
     const {favDogs} = useContext(DogDataContext);
 
@@ -16,6 +16,7 @@ const ResultElement = ({dog, index, onIconClick}) => {
         onIconClick(dog)
     }
 
+
     return (
         <>
 
@@ -25,60 +26,78 @@ const ResultElement = ({dog, index, onIconClick}) => {
                     <img src={dog.image_link} alt={dog.name} className=" w-100 rounded cover"/>
                     <h3 className="pt-3">{dog.name}</h3>
                 </Col>
-                <Col xs={12} sm={12} md={6} lg={4} xl={6}>
-                    <table className="table table-sm">
-                        <thead>
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col">Dog traits</th>
-                            <th scope="col">Your Answer</th>
-                            <th scope="col">Reality</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Energy</td>
-                            <td>Otto</td>
-                            <td>{dog.energy}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    {/*<ul>*/}
-                    {/*    <Col>Height: min:{dog.min_height_male}, max:{dog.max_height_male}</Col>*/}
-                    {/*    <Col>Weight: min:{dog.min_weight_male}, max:{dog.max_weight_male}</Col>*/}
-                    {/*    <Col> Energy: {dog.energy}</Col>*/}
-                    {/*    <Col>Loudness: {dog.barking}</Col>*/}
-                    {/*    <Col>Shedding: {dog.shedding}</Col>*/}
-                    {/*    <Col>Fast learner: {dog.trainability}</Col>*/}
-                    {/*    <Col>Protectiveness:{dog.protectiveness}</Col>*/}
-                    {/*    <Col>God with children: {dog.good_with_children}</Col>*/}
-                    {/*    <Col>Friendly to other dogs: {dog.good_with_other_dogs}</Col>*/}
-                    {/*</ul>*/}
+                <Col xs={12} sm={12} md={6} lg={4} xl={6}><table className="table table-sm">
+                    <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Dog traits</th>
+                        <th scope="col">Your Answer</th>
+                        <th scope="col">Reality</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {/*<tr key={questionNumber}>*/}
+                    {/*    <th scope="row"></th>*/}
+                    {/*    <td>Weight</td>*/}
+                    {/*    <td></td>*/}
+                    {/*    <td>from {dog.min_weight_male}lb to {dog.max_weight_male}lb</td>*/}
+                    {/*</tr>*/}
+                    {/*<tr key={questionNumber + 1}>*/}
+                    {/*    <th scope="row">3</th>*/}
+                    {/*    <td>Height</td>*/}
+                    {/*    <td>{answerValue}</td>*/}
+                    {/*    <td> from {dog.min_height_male}in to {dog.max_height_male}in</td>*/}
+                    {/*</tr>*/}
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>Energy</td>
+                        <td>{answerValue.energy}</td>
+                        <td>{dog.energy}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td>Loudness</td>
+                        <td>{answerValue.barking}</td>
+                        <td>{dog.barking}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7</th>
+                        <td>Shedding</td>
+                        <td>{answerValue.shedding}</td>
+                        <td>{dog.shedding}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td>Trainability</td>
+                        <td>{answerValue.trainability}</td>
+                        <td>{dog.trainability}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">9</th>
+                        <td>Protectiveness</td>
+                        <td>{answerValue.protectiveness}</td>
+                        <td>{dog.protectiveness}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">10</th>
+                        <td>Good with children</td>
+                        <td>{answerValue.good_with_children}</td>
+                        <td>{dog.good_with_children}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">11</th>
+                        <td>Good with other dogs</td>
+                        <td>{answerValue.good_with_other_dogs}</td>
+                        <td>{dog.good_with_other_dogs}</td>
+                    </tr>
+                    </tbody>
+                </table>
                 </Col>
                 <Col xs={12} sm={12} md={1} lg={2} xl={2} className="text-center"><i
                     className={`fa-regular fa-heart ${itsFavourite ? "fa-solid" : "fa-regular"}`}
                     onClick={onHandleIconClick}
                 ></i></Col>
             </Row>
-            {/*<ListGroup ><ListGroup.Item  index={index} className="d-flex justify-content-evenly align-items-center ms-5 me-5">*/}
-            {/*    <div className="w-50 h-50">*/}
-            {/*    <img src={dog.image_link} alt=""/>*/}
-            {/*    </div>*/}
-            {/*    <h4>{dog.name}</h4>*/}
-            {/*    <ListGroup>*/}
-            {/*        <ListGroup.Item>Height: min:{dog.min_height_male}, max:{dog.max_height_male}</ListGroup.Item>*/}
-            {/*        <ListGroup.Item> Energy: {dog.energy}</ListGroup.Item>*/}
-            {/*        <ListGroup.Item>Loudness: {dog.barking}</ListGroup.Item>*/}
-            {/*        <ListGroup.Item>Shedding: {dog.shedding}</ListGroup.Item>*/}
-            {/*        <ListGroup.Item>Fast learner: {dog.trainability}</ListGroup.Item>*/}
-            {/*        <ListGroup.Item>Protectiveness:{dog.protectiveness}</ListGroup.Item>*/}
-            {/*        <ListGroup.Item>God with children: {dog.good_with_children}</ListGroup.Item>*/}
-            {/*        <ListGroup.Item>Friendly to other dogs: {dog.good_with_other_dogs}</ListGroup.Item>*/}
-            {/*    </ListGroup>*/}
-            {/*    <i className={`fa-regular fa-heart ${itsFavourite ? "fa-solid" : "fa-regular"}`} onClick={onHandleIconClick}*/}
-            {/*    ></i>*/}
-            {/*</ListGroup.Item></ListGroup>*/}
 
         </>
     );

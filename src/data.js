@@ -4,7 +4,7 @@ export const allQuestions = {
     barking: "I don't mind a dog barking at all",
     shedding: "A lot of falling hair is not a problem",
     trainability: "I would love a smart and fast learning dog",
-    protectiveness: "I don't like dogs that react badly to strangers",
+    protectiveness: "I need a good guard dog",
     good_with_children: "The dog must fully accept children",
     good_with_other_dogs:"The dog must fully accept other dogs"
 }

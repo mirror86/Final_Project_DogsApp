@@ -12,12 +12,29 @@ const FavDogElement = ( {dog, key}) => {
     const iconClick = () => {
         handleRemoveFromFavourites(dog)
         localStorage.removeItem('pathfinding.favourites')
+        const saveData = localStorage.getItem('pathfinding.favourites');
+        const dataToArray = JSON.parse(saveData) || [];
+
+        const indexToRemove = dataToArray.findIndex((favDog) => favDog.key === key);
+
+        if (indexToRemove !== -1) {
+            dataToArray.splice(indexToRemove, 1);
+
+            localStorage.setItem('pathfinding.favourites', JSON.stringify(dataToArray));
+
+            // Wyświetl zaktualizowaną zawartość Local Storage
+            console.log(dataToArray);
+        } else {
+            console.log("Nie znaleziono obiektu o podanym kluczu.");
+        }
     }
     return (
         <>
              <Row key={key} className=" shadow justify-content-evenly gap-4 m-sm-2 align-items-center pt-2 pb-2">
-                <Col xs={12} sm={12} md={4} lg={3} xl={3} className="text-center"><img src={dog.image_link} alt={dog.name} className=" w-100 rounded cover"/></Col>
-                <Col xs={12} sm={12} md={6} lg={6} xl={6}><strong>{dog.name}</strong></Col>
+                 <Col xs={12} sm={12} md={4} lg={3} xl={3} className="text-center">
+                     <img src={dog.image_link} alt={dog.name} className=" w-100 rounded cover"/>
+                     <h3 className="pt-3">{dog.name}</h3>
+                 </Col>
                  <Col xs={12} sm={12} md={6} lg={6} xl={6}>
                      <table className="table table-sm">
                      <thead>

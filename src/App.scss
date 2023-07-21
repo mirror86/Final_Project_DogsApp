@@ -1,5 +1,6 @@
 @import "fonts";
 
+
 $info: rgba(107, 188, 190, 0.69);
 @import '~bootstrap/scss/bootstrap';
 
@@ -91,8 +92,7 @@ $info: rgba(107, 188, 190, 0.69);
 .finder__wrapper {
   height: 70vh;
   overflow-x: hidden;
-
-  padding: 2rem 0;
+  overflow-y: scroll ;
 }
 
 

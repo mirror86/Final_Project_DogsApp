@@ -26,17 +26,35 @@ const ResultElement = ({dog, index, onIconClick}) => {
                     <h3 className="pt-3">{dog.name}</h3>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={4} xl={6}>
-                    <ul>
-                        <Col>Height: min:{dog.min_height_male}, max:{dog.max_height_male}</Col>
-                        <Col>Weight: min:{dog.min_weight_male}, max:{dog.max_weight_male}</Col>
-                        <Col> Energy: {dog.energy}</Col>
-                        <Col>Loudness: {dog.barking}</Col>
-                        <Col>Shedding: {dog.shedding}</Col>
-                        <Col>Fast learner: {dog.trainability}</Col>
-                        <Col>Protectiveness:{dog.protectiveness}</Col>
-                        <Col>God with children: {dog.good_with_children}</Col>
-                        <Col>Friendly to other dogs: {dog.good_with_other_dogs}</Col>
-                    </ul>
+                    <table className="table table-sm">
+                        <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Dog traits</th>
+                            <th scope="col">Your Answer</th>
+                            <th scope="col">Reality</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Energy</td>
+                            <td>Otto</td>
+                            <td>{dog.energy}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    {/*<ul>*/}
+                    {/*    <Col>Height: min:{dog.min_height_male}, max:{dog.max_height_male}</Col>*/}
+                    {/*    <Col>Weight: min:{dog.min_weight_male}, max:{dog.max_weight_male}</Col>*/}
+                    {/*    <Col> Energy: {dog.energy}</Col>*/}
+                    {/*    <Col>Loudness: {dog.barking}</Col>*/}
+                    {/*    <Col>Shedding: {dog.shedding}</Col>*/}
+                    {/*    <Col>Fast learner: {dog.trainability}</Col>*/}
+                    {/*    <Col>Protectiveness:{dog.protectiveness}</Col>*/}
+                    {/*    <Col>God with children: {dog.good_with_children}</Col>*/}
+                    {/*    <Col>Friendly to other dogs: {dog.good_with_other_dogs}</Col>*/}
+                    {/*</ul>*/}
                 </Col>
                 <Col xs={12} sm={12} md={1} lg={2} xl={2} className="text-center"><i
                     className={`fa-regular fa-heart ${itsFavourite ? "fa-solid" : "fa-regular"}`}

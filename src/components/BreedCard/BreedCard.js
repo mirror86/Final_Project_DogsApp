@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Badge, Button, Card, Col, Collapse, ListGroup} from "react-bootstrap";
+import {traits} from "../../data";
 
 
 const BreedCard = ({dog, handleAddToFavourites, favDogs}) => {
@@ -23,7 +24,6 @@ const BreedCard = ({dog, handleAddToFavourites, favDogs}) => {
                     <i className={`fa-regular fa-heart ${itsFavourite ? "fa-solid" : "fa-regular"}`} onClick={onHandleIconClick}
                       ></i>
                 </Card.Body>
-                {/*<Button variant="outline-info" >More</Button>*/}
                 <Button
                     variant="outline-info"
                     onClick={() => setOpen(!open)}
@@ -34,63 +34,20 @@ const BreedCard = ({dog, handleAddToFavourites, favDogs}) => {
                 </Button>
                 <Collapse in={open}>
                     <ListGroup as="ol" numbered>
-                        // dopisz height i weight
-                        <ListGroup.Item
-                            as="li"
-                            className="d-flex justify-content-between align-items-start">
-                            <div className="ms-2 me-auto">
-                                <div className="fw-bold">Energy</div>
-                            </div>
-                            <Badge bg="info" pill>{dog.energy}</Badge>
-                        </ListGroup.Item>
-                        <ListGroup.Item
-                            as="li"
-                            className="d-flex justify-content-between align-items-start">
-                            <div className="ms-2 me-auto">
-                                <div className="fw-bold">Loudness</div>
-                            </div>
-                            <Badge bg="info" pill>{dog.barking}</Badge>
-                        </ListGroup.Item>
-                        <ListGroup.Item
-                            as="li"
-                            className="d-flex justify-content-between align-items-start">
-                            <div className="ms-2 me-auto">
-                                <div className="fw-bold">Shedding</div>
-                            </div>
-                            <Badge bg="info" pill>{dog.shedding}</Badge>
-                        </ListGroup.Item>
-                        <ListGroup.Item
-                            as="li"
-                            className="d-flex justify-content-between align-items-start">
-                            <div className="ms-2 me-auto">
-                                <div className="fw-bold">Trainability</div>
-                            </div>
-                            <Badge bg="info" pill>{dog.trainability}</Badge>
-                        </ListGroup.Item>
-                        <ListGroup.Item
-                            as="li"
-                            className="d-flex justify-content-between align-items-start">
-                            <div className="ms-2 me-auto">
-                                <div className="fw-bold">Protectiveness</div>
-                            </div>
-                            <Badge bg="info" pill>{dog.protectiveness}</Badge>
-                        </ListGroup.Item>
-                        <ListGroup.Item
-                            as="li"
-                            className="d-flex justify-content-between align-items-start">
-                            <div className="ms-2 me-auto">
-                                <div className="fw-bold"> God with children</div>
-                            </div>
-                            <Badge bg="info" pill>{dog.good_with_children}</Badge>
-                        </ListGroup.Item>
-                        <ListGroup.Item
-                            as="li"
-                            className="d-flex justify-content-between align-items-start">
-                            <div className="ms-2 me-auto">
-                                <div className="fw-bold"> God with other dogs</div>
-                            </div>
-                            <Badge bg="info" pill>{dog.good_with_other_dogs}</Badge>
-                        </ListGroup.Item>
+                        {traits.map((trait, index) => (
+                            <ListGroup.Item
+                                as="li"
+                                key={index}
+                                className="d-flex justify-content-between align-items-start"
+                            >
+                                <div className="ms-2 me-auto">
+                                    <div className="fw-bold">{trait.title}</div>
+                                </div>
+                                <Badge bg="info" pill>
+                                    {dog[trait.key]}
+                                </Badge>
+                            </ListGroup.Item>
+                        ))}
                     </ListGroup>
                 </Collapse>
             </Card>

@@ -75,3 +75,16 @@ export const labelValues = {
     5: "It fits perfectly!"
 }
 
+export const traits = [
+    {title: ' Min weight', key: 'min_weight_male'},
+    {title: ' Max weight', key: 'max_weight_male'},
+    {title: ' Min height', key: 'min_height_male'},
+    {title: ' Max height', key: 'max_height_male'},
+    { title: 'Energy', key: 'energy' },
+    { title: 'Loudness', key: 'barking' },
+    { title: 'Shedding', key: 'shedding' },
+    { title: 'Trainability', key: 'trainability' },
+    { title: 'Protectiveness', key: 'protectiveness' },
+    { title: 'Good with children', key: 'good_with_children' },
+    { title: 'Good with other dogs', key: 'good_with_other_dogs' },
+];

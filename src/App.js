@@ -29,17 +29,23 @@ function App() {
             .then(data => {setDogData(data); setIsLoading(false)})
             .catch(err => {console.error(err); setIsLoading(false)})
     }
-// adding selected dog to favourites
+// adding selected dog to favourites and save to local storage
     const handleAddToFavourites = (dog) => {
         const itsAlreadyFav = favDogs.some((favDog) => favDog === dog);
         if (itsAlreadyFav) {
             const updatedFavorites = favDogs.filter((favoriteId) => favoriteId !== dog);
             setFavDogs(updatedFavorites);
             localStorage.setItem('pathfinding.favourites', JSON.stringify(updatedFavorites));
+            const saveData = localStorage.getItem('pathfinding.favourites');
+            const dataToObject = JSON.parse(saveData);
+            console.log(dataToObject)
         } else {
             const newFavDogs = [...favDogs, dog];
             setFavDogs(newFavDogs);
             localStorage.setItem('pathfinding.favourites', JSON.stringify(newFavDogs));
+            const saveData = localStorage.getItem('pathfinding.favourites');
+            const dataToObject = JSON.parse(saveData);
+            console.log(dataToObject)
         }
         console.log(favDogs)
     };

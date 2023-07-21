@@ -25,7 +25,8 @@ const ResultElement = ({dog, index, onIconClick, answerValue, preferenceValue}) 
                     <img src={dog.image_link} alt={dog.name} className=" w-100 rounded cover"/>
                     <h3 className="pt-3">{dog.name}</h3>
                 </Col>
-                <Col xs={12} sm={12} md={6} lg={4} xl={6}><table className="table table-sm">
+                <Col xs={12} sm={12} md={6} lg={4} xl={6}>
+                    <table className="table table-sm">
                     <thead>
                     <tr>
 

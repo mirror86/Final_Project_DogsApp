@@ -34,6 +34,7 @@ const BreedCard = ({dog, handleAddToFavourites, favDogs}) => {
                 </Button>
                 <Collapse in={open}>
                     <ListGroup as="ol" numbered>
+                        // dopisz height i weight
                         <ListGroup.Item
                             as="li"
                             className="d-flex justify-content-between align-items-start">
@@ -62,7 +63,7 @@ const BreedCard = ({dog, handleAddToFavourites, favDogs}) => {
                             as="li"
                             className="d-flex justify-content-between align-items-start">
                             <div className="ms-2 me-auto">
-                                <div className="fw-bold">trainability</div>
+                                <div className="fw-bold">Trainability</div>
                             </div>
                             <Badge bg="info" pill>{dog.trainability}</Badge>
                         </ListGroup.Item>

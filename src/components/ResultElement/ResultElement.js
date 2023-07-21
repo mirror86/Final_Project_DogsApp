@@ -29,6 +29,7 @@ const ResultElement = ({dog, index, onIconClick}) => {
                  <Col xs={12} sm={12} md={6} lg={4} xl={6}>
                      <ul>
                          <Col >Height: min:{dog.min_height_male}, max:{dog.max_height_male}</Col>
+                         <Col >Weight: min:{dog.min_weight_male}, max:{dog.max_weight_male}</Col>
                                  <Col > Energy: {dog.energy}</Col>
                                  <Col>Loudness: {dog.barking}</Col>
                                  <Col>Shedding: {dog.shedding}</Col>

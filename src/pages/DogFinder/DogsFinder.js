@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useState} from 'react';
 import Container from "react-bootstrap/Container";
 import {Col, Row} from "react-bootstrap";
 import Footer from "../../components/Footer/Footer";
@@ -50,7 +50,7 @@ const DogsFinder = () => {
 
     }
 
-    //RangeForm value matched label
+    //matching the label to the value of range
     const handleRangeChange = (event) => {
         const selectedValue = parseInt(event.target.value);
         setAnswerValue(selectedValue);
@@ -116,17 +116,14 @@ const DogsFinder = () => {
     }
 const handleHeightChange =(key) => {
         handleHeightPreferences(key)
-
 }
 
     const handleWeightChange =(key) => {
         handleWeightPreferences(key)
-
     }
 
 // alert if the user does not fill out the form
     const handleGoToQuestionnaire = () => {
-
         if (weightSelected && heightSelected) {
             handleShowQuestionnairePage();
         } else {
@@ -135,7 +132,7 @@ const handleHeightChange =(key) => {
     }
 
 // creating Obj with answers from Questionnaire
-    const handleSaveAnswerFromQuestionnaire =  () => {
+    const handleSaveAnswerFromQuestionnaire = ()  => {
         // const answerQuestionnaire = {...answersQuestionnaire,}
        setAnswersQuestionnaire((prevState) => ({
                 ...prevState,
@@ -153,14 +150,6 @@ const handleHeightChange =(key) => {
     const createUrl =   () => {
         let updatedUrl = apiUrl;
         let prefix = '';
-        /*Object.entries(answersQuestionnaire).map(([key, value]) => {
-            if (value.answerValue > 0 && typeof questionsKeyArray[key-1] !== "undefined") {
-                if (!(questionsKeyArray[key-1] === 'energy' && value.answerValue === 1)) {
-                    updatedUrl += `${prefix}${questionsKeyArray[key-1]}=${value.answerValue}`;
-                    prefix = '&';
-                }
-            }
-        });*/
         if (answersPreference.weight.min > 0) {
             updatedUrl+= `${prefix}min_weight=${answersPreference.weight.min}`
             prefix = '&';
@@ -174,6 +163,7 @@ const handleHeightChange =(key) => {
        setFindUrl(updatedUrl);
     }
 
+    //internal filtering
     const filterFoundDogs = (data) => {
         let answersObj = {};
         Object.entries(answersQuestionnaire).map(([key, value]) => {
@@ -181,9 +171,10 @@ const handleHeightChange =(key) => {
                 if (!(questionsKeyArray[key-1] === 'energy' && value.answerValue === 1)) {
                     answersObj[questionsKeyArray[key-1]] = value.answerValue;
                 }
-            }
+            } return answersObj
         });
 
+//filter conditions
         const newData = Object.values(data).filter((dog) => {
             let dogAccepted = true;
             Object.entries(answersObj).map(([key, value]) => {
@@ -197,56 +188,92 @@ const handleHeightChange =(key) => {
                     }
                 }
             });
-
             return dogAccepted;
         });
-
         return newData;
     }
 
+    const handleSentAnswersFromQuestionnaire = async () => {
+        setIsLoading(true);
+        createUrl();
+        let apiData = [];
+        let findOffset = 0;
+        let apiHasData = true;
 
-    //passing new URL to API
-    const handleSentAnswersFromQuestionnaire = async() => {
-        setIsLoading(true)
-        createUrl()
-        let apiData = []
-        let findOffset = 0
-        let apiHasData = true
-        while (apiHasData) {
-            await fetch(`${findUrl}&offset=${findOffset}`, {
-                method: "GET",
-                headers: {
-                    'X-Api-Key': apiKey,
-                    'Content-Type': 'application/json'
-                }
-            })
-                .then(response => response.json())
-                .then(data =>  {
-                    if (data.length > 0) {
-                        const newData = filterFoundDogs(data);
-                        newData.forEach(item => {
-                            apiData.push(item);
-                        })
-                        findOffset += 20;
-                    } else {
-                        apiHasData = false;
-                        setDogData(apiData);
-                        setIsLoading(false);
+        const fetchData = async (offset) => {
+            try {
+                const response = await fetch(`${findUrl}&offset=${offset}`, {
+                    method: "GET",
+                    headers: {
+                        'X-Api-Key': apiKey,
+                        'Content-Type': 'application/json'
                     }
-                })
-                .catch(err => {
-                    console.error(err);
-                    apiHasData = false;
-                    //setIsLoading(false);
-                })
-        }
+                });
+                const data = await response.json();
 
-    }
+                if (data.length > 0) {
+                    const newData = filterFoundDogs(data);
+                    apiData.push(...newData);
+                    await fetchData(offset + 20); // Rekurencyjnie pobierz kolejne dane
+                } else {
+                    setDogData(apiData);
+                    setIsLoading(false);
+                }
+            } catch (err) {
+                console.error(err);
+                apiHasData = false;
+                setIsLoading(false);
+            }
+        };
+
+        await fetchData(findOffset);
+    };
+    //passing new URL to API
+    // const handleSentAnswersFromQuestionnaire = async() => {
+    //     setIsLoading(true)
+    //     createUrl()
+    //     let apiData = []
+    //     let findOffset = 0
+    //     let apiHasData = true
+    //     while (apiHasData) {
+    //         await fetch(`${findUrl}&offset=${findOffset}`, {
+    //             method: "GET",
+    //             headers: {
+    //                 'X-Api-Key': apiKey,
+    //                 'Content-Type': 'application/json'
+    //             }
+    //         })
+    //             .then(response => response.json())
+    //             .then(data =>  {
+    //                 if (data.length > 0) {
+    //                     const newData = filterFoundDogs(data);
+    //                     newData.forEach(item => {
+    //                         apiData.push(item);
+    //                     })
+    //                     findOffset += 20;
+    //                 } else {
+    //                     apiHasData = false;
+    //                     setDogData(apiData);
+    //                     setIsLoading(false);
+    //                 }
+    //             })
+    //             .catch(err => {
+    //                 console.error(err);
+    //                 apiHasData = false;
+    //                 //setIsLoading(false);
+    //             })
+    //     }
+    //
+    // }
+
+    // blocking function execution without apiUrl loaded
     useEffect(() => {
         if (findUrl !== apiUrl) {
             handleSentAnswersFromQuestionnaire();
         }
     }, [findUrl]);
+
+    // request for result
 const handleShowResults = () => {
     handleSentAnswersFromQuestionnaire()
 setResult(false)

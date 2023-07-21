@@ -6,6 +6,7 @@ const ResultElement = ({dog, index, onIconClick, answerValue, preferenceValue}) 
     const [itsFavourite, setItsFavourite] = useState(false);
     const {favDogs} = useContext(DogDataContext);
 
+
     useEffect(() => {
         const isFavourite = favDogs.some((favDog) => favDog.name === dog.name);
         setItsFavourite(isFavourite);
@@ -16,10 +17,8 @@ const ResultElement = ({dog, index, onIconClick, answerValue, preferenceValue}) 
         onIconClick(dog)
     }
 
-
     return (
         <>
-
             <Row key={index}
                  className=" shadow justify-content-evenly gap-4 mt-2 mb-2 mt-sm-4 mt-sm-4 mt-lg-4 mb-lg-4 ms-sm-1 me-sm-1 ms-lg-2 me-lg-2 align-items-center pt-2 pb-2">
                 <Col xs={12} sm={12} md={4} lg={3} xl={3} className="text-center">

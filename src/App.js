@@ -13,7 +13,7 @@ export const DogDataContext = createContext(undefined);
 function App() {
     const [dogData, setDogData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [favDogs, setFavDogs] = useState([]);
+    const [favDogs, setFavDogs] = useState(localStorage.getItem('pathfinding.favourites') ? JSON.parse(localStorage.getItem('pathfinding.favourites')) : []);
 
     // Api fetch
     const loadData = async (offset) => {
@@ -36,16 +36,16 @@ function App() {
             const updatedFavorites = favDogs.filter((favoriteId) => favoriteId !== dog);
             setFavDogs(updatedFavorites);
             localStorage.setItem('pathfinding.favourites', JSON.stringify(updatedFavorites));
-            const saveData = localStorage.getItem('pathfinding.favourites');
-            const dataToObject = JSON.parse(saveData);
-            console.log(dataToObject)
+            // const saveData = localStorage.getItem('pathfinding.favourites');
+            // const dataToArray = JSON.parse(saveData) || [];
+            // console.log(dataToArray)
         } else {
             const newFavDogs = [...favDogs, dog];
             setFavDogs(newFavDogs);
             localStorage.setItem('pathfinding.favourites', JSON.stringify(newFavDogs));
-            const saveData = localStorage.getItem('pathfinding.favourites');
-            const dataToObject = JSON.parse(saveData);
-            console.log(dataToObject)
+            // const saveData = localStorage.getItem('pathfinding.favourites');
+            // const dataToArray = JSON.parse(saveData) || [];
+            // console.log(dataToArray)
         }
         console.log(favDogs)
     };

@@ -224,7 +224,6 @@ const [answersObject, setAnswersObject] = useState({})
             } catch (err) {
                 console.error(err);
                 apiHasData = false;
-                setIsLoading(false);
             }
         };
 

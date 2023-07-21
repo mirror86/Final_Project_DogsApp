@@ -4,29 +4,13 @@ import {DogDataContext} from "../../App";
 const FavDogElement = ( {dog, key}) => {
     const { favDogs,setFavDogs  } = useContext(DogDataContext);
     const handleRemoveFromFavourites = (dog) => {
-        console.log(dog)
         const updatedFavorites= favDogs.filter((favDog)=> ( dog.name !== favDog.name))
         setFavDogs(updatedFavorites)
+        localStorage.setItem('pathfinding.favourites', JSON.stringify(updatedFavorites));
     }
 
     const iconClick = () => {
         handleRemoveFromFavourites(dog)
-        localStorage.removeItem('pathfinding.favourites')
-        const saveData = localStorage.getItem('pathfinding.favourites');
-        const dataToArray = JSON.parse(saveData) || [];
-
-        const indexToRemove = dataToArray.findIndex((favDog) => favDog.key === key);
-
-        if (indexToRemove !== -1) {
-            dataToArray.splice(indexToRemove, 1);
-
-            localStorage.setItem('pathfinding.favourites', JSON.stringify(dataToArray));
-
-            // Wyświetl zaktualizowaną zawartość Local Storage
-            console.log(dataToArray);
-        } else {
-            console.log("Nie znaleziono obiektu o podanym kluczu.");
-        }
     }
     return (
         <>

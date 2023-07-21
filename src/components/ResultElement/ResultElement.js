@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {Col, Row} from "react-bootstrap";
 import {DogDataContext} from "../../App";
 
-const ResultElement = ({dog, index, onIconClick, answerValue}) => {
+const ResultElement = ({dog, index, onIconClick, answerValue, preferenceValue}) => {
     const [itsFavourite, setItsFavourite] = useState(false);
     const {favDogs} = useContext(DogDataContext);
 
@@ -29,63 +29,54 @@ const ResultElement = ({dog, index, onIconClick, answerValue}) => {
                 <Col xs={12} sm={12} md={6} lg={4} xl={6}><table className="table table-sm">
                     <thead>
                     <tr>
-                        <th scope="col"></th>
+
                         <th scope="col">Dog traits</th>
                         <th scope="col">Your Answer</th>
                         <th scope="col">Reality</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {/*<tr key={questionNumber}>*/}
-                    {/*    <th scope="row"></th>*/}
-                    {/*    <td>Weight</td>*/}
-                    {/*    <td></td>*/}
-                    {/*    <td>from {dog.min_weight_male}lb to {dog.max_weight_male}lb</td>*/}
-                    {/*</tr>*/}
-                    {/*<tr key={questionNumber + 1}>*/}
-                    {/*    <th scope="row">3</th>*/}
-                    {/*    <td>Height</td>*/}
-                    {/*    <td>{answerValue}</td>*/}
-                    {/*    <td> from {dog.min_height_male}in to {dog.max_height_male}in</td>*/}
-                    {/*</tr>*/}
                     <tr>
-                        <th scope="row">5</th>
+                        <td>Weight</td>
+                        <td> from {preferenceValue.weight.min}lb to {preferenceValue.weight.max}lb</td>
+                        <td>from {dog.min_weight_male}lb to {dog.max_weight_male}lb</td>
+                    </tr>
+                    <tr>
+                        <td>Height</td>
+                        <td>from {preferenceValue.height.min}in to {preferenceValue.height.max}in</td>
+                        <td> from {dog.min_height_male}in to {dog.max_height_male}in</td>
+                    </tr>
+                    <tr>
                         <td>Energy</td>
                         <td>{answerValue.energy}</td>
                         <td>{dog.energy}</td>
                     </tr>
                     <tr>
-                        <th scope="row">6</th>
                         <td>Loudness</td>
                         <td>{answerValue.barking}</td>
                         <td>{dog.barking}</td>
                     </tr>
                     <tr>
-                        <th scope="row">7</th>
                         <td>Shedding</td>
                         <td>{answerValue.shedding}</td>
                         <td>{dog.shedding}</td>
                     </tr>
                     <tr>
-                        <th scope="row">8</th>
                         <td>Trainability</td>
                         <td>{answerValue.trainability}</td>
                         <td>{dog.trainability}</td>
                     </tr>
                     <tr>
-                        <th scope="row">9</th>
                         <td>Protectiveness</td>
                         <td>{answerValue.protectiveness}</td>
                         <td>{dog.protectiveness}</td>
                     </tr>
                     <tr>
-                        <th scope="row">10</th>
                         <td>Good with children</td>
                         <td>{answerValue.good_with_children}</td>
                         <td>{dog.good_with_children}</td>
                     </tr>
                     <tr>
-                        <th scope="row">11</th>
                         <td>Good with other dogs</td>
                         <td>{answerValue.good_with_other_dogs}</td>
                         <td>{dog.good_with_other_dogs}</td>
@@ -98,7 +89,6 @@ const ResultElement = ({dog, index, onIconClick, answerValue}) => {
                     onClick={onHandleIconClick}
                 ></i></Col>
             </Row>
-
         </>
     );
 };

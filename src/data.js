@@ -44,14 +44,14 @@ export const dogWeightPreferences = {
         label:  "The skinny type",
         weightRange: {
             min_weight_male: 2,
-            max_weight_male: 100,
+            max_weight_male: 60,
         },
     },
     brawler: {
         label:  "Brawler type",
         weightRange: {
-            min_weight_male: 50,
-            max_weight_male: 300,
+            min_weight_male: 70,
+            max_weight_male: 200,
         },
     },
     notMatter: {

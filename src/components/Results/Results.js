@@ -5,13 +5,13 @@ import {Row, Spinner} from "react-bootstrap";
 import ResultElement from "../ResultElement/ResultElement";
 
 
-const Results = ({answerValue, questionnaire,questionNumber}) => {
+const Results = ({answerValue, preferenceValue}) => {
 
     const {dogData, handleAddToFavourites, isLoading} = useContext(DogDataContext);
     return (
         <>
             <>
-                <Container fluid className="pages__container main h-auto shadow-lg bg-white"
+                <Container fluid className="pages__container main h-auto  bg-white overflow-y-hidden ms-3"
                            style={{overflowY: "scroll"}}>
                     <Container fluid className="h-auto bg-white">
                         <Row className="d-flex flex-wrap">
@@ -22,9 +22,8 @@ const Results = ({answerValue, questionnaire,questionNumber}) => {
                             )}
                             {!isLoading && dogData &&
                                 dogData.map((dog, index) => (
-                                    <ResultElement dog={dog} key={index} answerValue={answerValue}  onIconClick={handleAddToFavourites}/>
+                                    <ResultElement dog={dog} key={index} answerValue={answerValue} preferenceValue={preferenceValue} onIconClick={handleAddToFavourites}/>
                                 ))}
-
                         </Row>
                     </Container>
                 </Container>

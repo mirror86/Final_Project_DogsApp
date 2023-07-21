@@ -301,7 +301,7 @@ const [answersObject, setAnswersObject] = useState({})
                             </Col>
                         ) : result ? (
                             <Answers sentData={handleShowResults}/>
-                        ) : (<Results answerValue={answersObject}/>)}
+                        ) : (<Results answerValue={answersObject} preferenceValue={answersPreference}/>)}
                     </Col>
                 </Row>
             </Container>

@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 const PreferencePage = ({onOtherQuestions, weightPreferencesMustHave, heightPreferencesMustHave}) => {
     return (
         <>
-            <header className="text-center">
+            <header className="text-center pt-0 pt-md-5">
                 <h1>What does your dream dog look like?</h1>
             </header>
             <section>

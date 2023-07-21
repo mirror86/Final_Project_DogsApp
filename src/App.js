@@ -7,15 +7,15 @@ import FavDogs from "./pages/FavDogs/FavDogs";
 import Menu from "./components/Menu/Menu";
 import {ThemeProvider} from "react-bootstrap";
 import {Routes, Route} from "react-router-dom";
-import QuestionnairePage from "./components/QuestionnairePage/QuestionnairePage";
 import React, {createContext, useState} from "react";
 import {apiKey, apiUrl} from "./data";
-import Container from "react-bootstrap/Container";
-export const DogDataContext = createContext();
+export const DogDataContext = createContext(undefined);
 function App() {
     const [dogData, setDogData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [favDogs, setFavDogs] = useState([]);
+
+    // Api fetch
     const loadData = async (offset) => {
         setIsLoading(true);
        await fetch(`${apiUrl}min_height=1&offset=${offset}`, {
@@ -29,17 +29,17 @@ function App() {
             .then(data => {setDogData(data); setIsLoading(false)})
             .catch(err => {console.error(err); setIsLoading(false)})
     }
-
+// adding selected dog to favourites
     const handleAddToFavourites = (dog) => {
         const itsAlreadyFav = favDogs.some((favDog) => favDog === dog);
         if (itsAlreadyFav) {
             const updatedFavorites = favDogs.filter((favoriteId) => favoriteId !== dog);
             setFavDogs(updatedFavorites);
-            localStorage.setItem('finddogapp.favourites', JSON.stringify(updatedFavorites));
+            localStorage.setItem('pathfinding.favourites', JSON.stringify(updatedFavorites));
         } else {
             const newFavDogs = [...favDogs, dog];
             setFavDogs(newFavDogs);
-            localStorage.setItem('finddogapp.favourites', JSON.stringify(newFavDogs));
+            localStorage.setItem('pathfinding.favourites', JSON.stringify(newFavDogs));
         }
         console.log(favDogs)
     };

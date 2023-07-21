@@ -1,11 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import FormRange from "../FormRange/FormRange";
-import {Button, Col, Row} from "react-bootstrap";
-import Container from "react-bootstrap/Container";
+import {Button} from "react-bootstrap";
 
-
-const QuestionnairePage = ({questionNumber, onBack, onNext, currentQuestion, rangeValue, answerValue, label, onSaveAnswerValue}) => {
-
+const QuestionnairePage = ({questionNumber, onBack, onNext, currentQuestion, rangeValue, answerValue, label, handleSaveAnswerValue}) => {
     return (
         <div className="question__wrapper">
             <header className="text-center">
@@ -17,7 +14,7 @@ const QuestionnairePage = ({questionNumber, onBack, onNext, currentQuestion, ran
                 <FormRange value={answerValue} label={label} rangeValue={rangeValue} />
                 <div className="d-flex justify-content-end me-5">
                     <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3" onClick={onBack}>Back</Button>
-                    <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3" onClick={onNext} onSubmit={onSaveAnswerValue}>Next</Button>
+                    <Button variant="outline-info" size="lg" className="ms-2 me-2 mt-3" onClick={onNext} onSubmit={handleSaveAnswerValue}>Next</Button>
                 </div>
             </section>
         </div>

@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Container from "react-bootstrap/Container";
 import {Col, Row} from "react-bootstrap";
 import Footer from "../../components/Footer/Footer";
@@ -39,8 +39,7 @@ const DogsFinder = () => {
     const handleFinderPrevSite = () => {
         if (questionNumber <= 1) {
             setShowPreferencePage(true)
-        }
-        else {
+        } else {
             setQuestionNumber(prevState => prevState - 1)
             handleLoadPrevQuestion()
         }
@@ -67,7 +66,7 @@ const DogsFinder = () => {
             setLabel(labelValues[0]);
         }
         // else {
-            // setShowAnswers(true)
+        // setShowAnswers(true)
         // }
     }
 
@@ -114,11 +113,11 @@ const DogsFinder = () => {
         setWeightSelected(true)
 
     }
-const handleHeightChange =(key) => {
+    const handleHeightChange = (key) => {
         handleHeightPreferences(key)
-}
+    }
 
-    const handleWeightChange =(key) => {
+    const handleWeightChange = (key) => {
         handleWeightPreferences(key)
     }
 
@@ -132,11 +131,11 @@ const handleHeightChange =(key) => {
     }
 
 // creating Obj with answers from Questionnaire
-    const handleSaveAnswerFromQuestionnaire = ()  => {
+    const handleSaveAnswerFromQuestionnaire = () => {
         // const answerQuestionnaire = {...answersQuestionnaire,}
-       setAnswersQuestionnaire((prevState) => ({
-                ...prevState,
-                [questionNumber]: {answerValue},
+        setAnswersQuestionnaire((prevState) => ({
+            ...prevState,
+            [questionNumber]: {answerValue},
         }));
 
     };
@@ -147,31 +146,32 @@ const handleHeightChange =(key) => {
     }, [answerValue]);
 
     // creating new URL to API
-    const createUrl =   () => {
+    const createUrl = () => {
         let updatedUrl = apiUrl;
         let prefix = '';
         if (answersPreference.weight.min > 0) {
-            updatedUrl+= `${prefix}min_weight=${answersPreference.weight.min}`
+            updatedUrl += `${prefix}min_weight=${answersPreference.weight.min}`
             prefix = '&';
-            updatedUrl+= `${prefix}max_weight=${answersPreference.weight.max}`
+            updatedUrl += `${prefix}max_weight=${answersPreference.weight.max}`
         }
-        if (answersPreference.height.min > 0){
-            updatedUrl+= `${prefix}min_height=${answersPreference.height.min}`
+        if (answersPreference.height.min > 0) {
+            updatedUrl += `${prefix}min_height=${answersPreference.height.min}`
             prefix = '&';
-            updatedUrl+= `${prefix}max_height=${answersPreference.height.max}`
+            updatedUrl += `${prefix}max_height=${answersPreference.height.max}`
         }
-       setFindUrl(updatedUrl);
+        setFindUrl(updatedUrl);
     }
 
     //internal filtering
     const filterFoundDogs = (data) => {
         let answersObj = {};
         Object.entries(answersQuestionnaire).map(([key, value]) => {
-            if (value.answerValue > 0 && typeof questionsKeyArray[key-1] !== "undefined") {
-                if (!(questionsKeyArray[key-1] === 'energy' && value.answerValue === 1)) {
-                    answersObj[questionsKeyArray[key-1]] = value.answerValue;
+            if (value.answerValue > 0 && typeof questionsKeyArray[key - 1] !== "undefined") {
+                if (!(questionsKeyArray[key - 1] === 'energy' && value.answerValue === 1)) {
+                    answersObj[questionsKeyArray[key - 1]] = value.answerValue;
                 }
-            } return answersObj
+            }
+            return answersObj
         });
 
 //filter conditions
@@ -274,35 +274,35 @@ const handleHeightChange =(key) => {
     }, [findUrl]);
 
     // request for result
-const handleShowResults = () => {
-    handleSentAnswersFromQuestionnaire()
-setResult(false)
-}
+    const handleShowResults = () => {
+        handleSentAnswersFromQuestionnaire()
+        setResult(false)
+    }
     return (
         <>
-                <Container className="finder__wrapper justify-content-center">
+            <Container className="finder__wrapper justify-content-center">
                 <Row>
                     <Col>
                         {showPreferencePage ? (
                             <Col>
-                            <PreferencePage
-                                onOtherQuestions={handleGoToQuestionnaire}
-                                weightPreferencesMustHave={handleWeightChange}
-                                heightPreferencesMustHave={handleHeightChange}/>
+                                <PreferencePage
+                                    onOtherQuestions={handleGoToQuestionnaire}
+                                    weightPreferencesMustHave={handleWeightChange}
+                                    heightPreferencesMustHave={handleHeightChange}/>
                             </Col>
                         ) : questionNumber <= 7 ? (
                             <Col>
-                            <QuestionnairePage questionNumber={questionNumber} currentQuestion={currentQuestion}
-                                               label={label} answerValue={answerValue} onBack={handleFinderPrevSite}
-                                               onNext={handleFinderNextSite} rangeValue={handleRangeChange}
-                                               onSaveAnswerValue={handleSaveAnswerFromQuestionnaire}/>
+                                <QuestionnairePage questionNumber={questionNumber} currentQuestion={currentQuestion}
+                                                   label={label} answerValue={answerValue} onBack={handleFinderPrevSite}
+                                                   onNext={handleFinderNextSite} rangeValue={handleRangeChange}
+                                                   handleSaveAnswerValue={handleSaveAnswerFromQuestionnaire}/>
                             </Col>
-                        ) : result ?(
+                        ) : result ? (
                             <Answers sentData={handleShowResults}/>
-                        ) : ( <Results/>)}
+                        ) : (<Results/>)}
                     </Col>
                 </Row>
-                </Container>
+            </Container>
             <Footer/>
         </>
     )

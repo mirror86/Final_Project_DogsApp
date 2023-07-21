@@ -1,7 +1,7 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext} from 'react';
 import {DogDataContext} from "../../App";
 import Container from "react-bootstrap/Container";
-import {Button, ListGroup, Row, Spinner} from "react-bootstrap";
+import {Row, Spinner} from "react-bootstrap";
 import ResultElement from "../ResultElement/ResultElement";
 
 
@@ -11,7 +11,8 @@ const Results = () => {
     return (
         <>
             <>
-                <Container fluid className="pages__container main h-auto shadow-lg bg-white" style={{ overflowY: "scroll" }}>
+                <Container fluid className="pages__container main h-auto shadow-lg bg-white"
+                           style={{overflowY: "scroll"}}>
                     <Container fluid className="h-auto bg-white">
                         <Row className="d-flex flex-wrap">
                             {isLoading && (

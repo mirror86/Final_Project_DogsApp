@@ -1,7 +1,6 @@
 import React from 'react';
 
 const FormRange = ({rangeValue, value, label}) => {
-
     return (
         <div className=" d-flex justify-content-center flex-column ms-5 me-5 p-3 p-md-4">
             <input
@@ -16,8 +15,5 @@ const FormRange = ({rangeValue, value, label}) => {
         </div>
     );
 };
-
-
-
 
 export default FormRange;

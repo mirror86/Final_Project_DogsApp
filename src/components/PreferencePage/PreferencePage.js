@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Button, Col, Form, Row} from "react-bootstrap";
 import {dogHeightPreferences, dogWeightPreferences} from "../../data";
 import Container from "react-bootstrap/Container";
 
-
 const PreferencePage = ({onOtherQuestions, weightPreferencesMustHave, heightPreferencesMustHave}) => {
-
     return (
         <>
             <header className="text-center">

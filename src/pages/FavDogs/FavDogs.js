@@ -3,9 +3,9 @@ import Container from "react-bootstrap/Container";
 import {Col, Row} from "react-bootstrap";
 import FavDogElement from "../../components/FavDogElement/FavDogElement";
 import {DogDataContext} from "../../App.js"
-import BreedCard from "../../components/BreedCard/BreedCard";
+
 const FavDogs = () => {
-    const {  handleAddToFavourites, favDogs} = useContext(DogDataContext);
+    const {handleAddToFavourites, favDogs} = useContext(DogDataContext);
     console.log(favDogs)
     return (
         <>
@@ -16,7 +16,7 @@ const FavDogs = () => {
                             {!favDogs.length && (<h1>It's empty</h1>)}
                             <Container fluid="lg" className="mt-4">
                                 {favDogs && favDogs.map((dog, index) => (
-                                <FavDogElement key={index} dog={dog} handleAddtoFavourites={handleAddToFavourites} />
+                                    <FavDogElement key={index} dog={dog} handleAddtoFavourites={handleAddToFavourites}/>
                                 ))}
                             </Container>
                         </Col>

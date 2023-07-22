@@ -25,7 +25,7 @@ const Results = ({answerValue, preferenceValue}) => {
                                                    preferenceValue={preferenceValue}
                                                    onIconClick={handleAddToFavourites}/>
                                 ))}
-                            {!isLoading && !dogData.length && (<div>no data</div>)}
+                            {!isLoading && !dogData.length && (<div className="text-center"><h1>Loading.... Please wait a few seconds</h1></div>)}
                         </Row>
                     </Container>
                 </Container>

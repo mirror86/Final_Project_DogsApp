@@ -145,8 +145,8 @@ const [answersObject, setAnswersObject] = useState({})
         handleSaveAnswerFromQuestionnaire();
     }, [answerValue]);
 
-    // creating new URL to API
-    const createUrl = () => {
+    // creating new URL(preference) to API
+    const createUrlFromPreference = () => {
         let updatedUrl = apiUrl;
         let prefix = '';
         if (answersPreference.weight.min > 0) {
@@ -163,7 +163,7 @@ const [answersObject, setAnswersObject] = useState({})
     }
 
     //internal filtering
-    const filterFoundDogs = (data) => {
+    const filterFoundDogsFromQuestionnaire = (data) => {
         let answersObj = {};
         Object.entries(answersQuestionnaire).map(([key, value]) => {
             if (value.answerValue > 0 && typeof questionsKeyArray[key - 1] !== "undefined") {
@@ -197,7 +197,7 @@ const [answersObject, setAnswersObject] = useState({})
     // passing URL to API
     const handleSentAnswersFromQuestionnaire = async () => {
         setIsLoading(true);
-        createUrl();
+        createUrlFromPreference();
         let apiData = [];
         let findOffset = 0;
 
@@ -215,7 +215,7 @@ const [answersObject, setAnswersObject] = useState({})
                 const data = await response.json();
 
                 if (data.length > 0) {
-                    const newData = filterFoundDogs(data);
+                    const newData = filterFoundDogsFromQuestionnaire(data);
                     apiData.push(...newData);
                     await fetchData(offset + 20);
                 } else {
@@ -228,7 +228,6 @@ const [answersObject, setAnswersObject] = useState({})
                 setIsLoading(false);
             }
         };
-
         await fetchData(findOffset);
     };
 

@@ -25,3 +25,6 @@ yarn-error.log*
 .idea
 node_modules
 firebase.js
+firebase.json
+.firebaserc
+database.rules.json
